@@ -36,9 +36,14 @@ import { FromNowPipe } from './pipes/from-now.pipe';
   providers: [
     MessagesService, ThreadsService, UsersService,
     Config,
-    { provide: APP_INITIALIZER, useFactory: function(config:Config){ return  () => config.load();}, deps: [Config], multi: true }
+    { provide: APP_INITIALIZER, useFactory: /*function(config:Config){ return  () => config.load();}*/ useFactory, deps: [Config], multi: true }
   ],
 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+function useFactory(config:Config){ 
+  return  () => config.load();
+}
+
