@@ -1,0 +1,59 @@
+{
+    "data": [
+      {
+        "name": "first",
+        "hints":[
+          {
+            "id": "id1",
+            "direction" : "right",
+            "message" : "asd"
+          },
+          {
+            "id": "id2",
+            "direction" : "right",
+            "message" : "qwe"
+          },
+          {
+            "id": "id3",
+            "direction" : "right",
+            "message" : "bcd"       
+          }
+        ]
+      },
+      {
+        "name":"second",
+        "hints": [
+          {
+            "id": "id5",
+            "direction" : "up",
+            "message" : "asd"
+          },
+          {
+            "id": "id4",
+            "direction" : "right",
+            "message" : "bcd"
+          },
+          {
+            "id": "id2",
+            "direction" : "right",
+            "message" : "qwe"       
+          }
+        ]
+      },
+      {
+        "name":"third",
+        "hints":[
+          {
+            "id": "id6",
+            "direction" : "up",
+            "message" : "asd"
+          },
+          {
+            "id": "id1",
+            "direction" : "right",
+            "message" : "bcd"
+          }
+        ]   
+      }
+  ]
+}
