@@ -6,7 +6,8 @@ import { HttpModule } from '@angular/http';
 import { UsersService } from './user/users.service';
 import { ThreadsService } from './thread/threads.service';
 import { MessagesService } from './message/messages.service';
-
+import { APP_INITIALIZER } from '@angular/core';
+import {Config} from "./util/config"
 import { AppComponent } from './app.component';
 import { ChatMessageComponent } from './chat-message/chat-message.component';
 import { ChatThreadComponent } from './chat-thread/chat-thread.component';
@@ -33,9 +34,16 @@ import { FromNowPipe } from './pipes/from-now.pipe';
     HttpModule
   ],
   providers: [
-    MessagesService, ThreadsService, UsersService
+    MessagesService, ThreadsService, UsersService,
+    Config,
+    { provide: APP_INITIALIZER, useFactory: /*function(config:Config){ return  () => config.load();}*/ useFactory, deps: [Config], multi: true }
   ],
 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+function useFactory(config:Config){ 
+  return  () => config.load();
+}
+
