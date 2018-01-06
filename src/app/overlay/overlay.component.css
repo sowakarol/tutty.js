@@ -26,18 +26,8 @@
     right: 1.5em;
 }
 
-/* TODO: verify if this is necessary */
-
-.left-paging-col {
-    text-align: right; 
-}
-
-.right-paging-col {
-    text-align: left;
-}
-
-.paging-center {
-    text-align: center;
+#hint-progress { 
+    padding: 7px;
 }
 
 .paging-button {
@@ -64,4 +54,17 @@
   background-color: #cccccc;
   color: #666666;
   cursor: default;
+}
+
+.hint-progress-indicator {
+    border-radius: 50%;
+    border: 2px solid #666;
+    height: 22px;
+    width: 22px;
+    text-align: center;
+    display: inline-block;
+}
+
+.hint-progress-indicator-current {
+    background-color: aliceblue;
 }

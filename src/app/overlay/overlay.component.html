@@ -4,10 +4,10 @@
         <div class="col-xs-5 text-right">
             <button [disabled]="currentHintIndex === 0" (click)="showPrevHint()" class="paging-button">Previous</button>
         </div>
-        <div class="col-xs-2 text-center">
-                <span *ngIf="currentHintIndex > 0">{{currentHintIndex - 1}}</span>
-                <span>{{currentHintIndex}}</span>
-                <span *ngIf="currentHintIndex < numberOfHints - 1 ">{{currentHintIndex + 1}}</span>
+        <div id="hint-progress" class="col-xs-2 text-center ">
+                <div class="hint-progress-indicator" *ngIf="currentHintIndex > 0">{{currentHintIndex - 1}}</div>
+                <div class="hint-progress-indicator hint-progress-indicator-current">{{currentHintIndex}}</div>
+                <div class="hint-progress-indicator" *ngIf="currentHintIndex < numberOfHints - 1 ">{{currentHintIndex + 1}}</div>
         </div>
         <div class="col-xs-5 text-left">
             <button (click)="showNextHint()" class="paging-button">{{nextButtonText}}</button>
