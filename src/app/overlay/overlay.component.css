@@ -11,10 +11,57 @@
     z-index: 2137;
 }
 
+#paging {
+    bottom: 1em;
+    position: fixed;
+    display: block;
+    width: 100%;
+}
+
 #exit {
-    position: absolute;
+    position: fixed;
     cursor: pointer;
-    top: 1.5em;
+    top: 1em;
     font-size: 2em;
     right: 1.5em;
+}
+
+/* TODO: verify if this is necessary */
+
+.left-paging-col {
+    text-align: right; 
+}
+
+.right-paging-col {
+    text-align: left;
+}
+
+.paging-center {
+    text-align: center;
+}
+
+.paging-button {
+    display: inline-block;
+    border: 2px solid #555555;
+    background-color: #555555;
+    color: white;
+    padding: 7px;
+    text-align: center;
+    text-decoration: none;
+    min-width: 71px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.paging-button:hover {
+    color: #555555;
+    border: 2px solid #555555;
+    background-color: white;
+}
+
+.paging-button:disabled {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  cursor: default;
 }

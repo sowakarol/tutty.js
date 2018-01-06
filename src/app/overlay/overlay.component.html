@@ -1,3 +1,16 @@
-<div id="overlay" [style.display]="overlayDisplay">
-    <span id="exit" (click)="close()">&#10005;</span>
-</div> 
+<div class="container-fluid" id="overlay" [style.display]="overlayDisplay">
+    <span id="exit" (click)="close()" class="glyphicon glyphicon-remove"></span>
+    <div id="paging" class="row"> 
+        <div class="col-xs-5 text-right">
+            <button [disabled]="currentHintIndex === 0" (click)="showPrevHint()" class="paging-button">Previous</button>
+        </div>
+        <div class="col-xs-2 text-center">
+                <span *ngIf="currentHintIndex > 0">{{currentHintIndex - 1}}</span>
+                <span>{{currentHintIndex}}</span>
+                <span *ngIf="currentHintIndex < numberOfHints - 1 ">{{currentHintIndex + 1}}</span>
+        </div>
+        <div class="col-xs-5 text-left">
+            <button (click)="showNextHint()" class="paging-button">{{nextButtonText}}</button>
+        </div>
+    </div> 
+</div>
