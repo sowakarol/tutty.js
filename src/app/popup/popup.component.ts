@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  ApplicationRef, Component, ComponentFactoryResolver, EmbeddedViewRef, Injector, Input,
+  OnInit
+} from '@angular/core';
 
 @Component({
   selector: 'app-popup',
@@ -7,29 +10,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PopupComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private compFacResolv: ComponentFactoryResolver,
+    private appRef: ApplicationRef,
+    private injector: Injector
+  ) {};
 
-  private text: string;
-  private isOpened: boolean;
-  popupDisplay = 'block';
+  @Input() public text: string;
+  @Input() public idToPopup: string;
+  popupDisplay = 'none';
 
   ngOnInit() {
-    this.isOpened = false;
-    this.text = 'chuj';
+    this.popUp(this.text, this.idToPopup);
   }
 
-  popUp(text: string){
+  popUp(text: string, id: string) {
     this.text = text;
-    this.isOpened = !this.isOpened;
-    if(this.isOpened){
-
-    }
+    this.idToPopup = id;
     this.popupDisplay = 'block';
+    let elementById = document.getElementById(id);
+    this.appendComponentToBody(elementById);
   }
 
-  close(){
-    this.text = null;
-    // this.isOpened = false;
+  appendComponentToBody(component: any){
+    const componentRef = this.compFacResolv
+      .resolveComponentFactory(component)
+      .create(this.injector);
+
+    this.appRef.attachView(componentRef.hostView);
+
+    const domElem = (componentRef.hostView as EmbeddedViewRef<any>)
+      .rootNodes[0] as HTMLElement;
+
+    document.body.appendChild(domElem);
+  }
+
+  close() {
     this.popupDisplay = 'none';
     console.log("kurwa");
   }
