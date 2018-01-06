@@ -22,6 +22,7 @@ export class OverlayComponent implements OnInit {
   numberOfHints: number;
 
   overlayDisplay= 'block';
+  exitModalDisplay= 'none';
   nextButtonText= 'Next';
 
   showNextHint = () => {
@@ -44,8 +45,10 @@ export class OverlayComponent implements OnInit {
     }
   }
 
-  close = () => {
-    this.overlayDisplay = 'none';
-  }
+  showExitModal = () => this.exitModalDisplay = 'block';
+
+  closeExitModal = () => this.exitModalDisplay = 'none';
+
+  close = () =>  this.overlayDisplay = 'none';
 
 }

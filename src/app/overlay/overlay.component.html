@@ -1,8 +1,10 @@
 <div class="container-fluid" id="overlay" [style.display]="overlayDisplay">
-    <span id="exit" (click)="close()" class="glyphicon glyphicon-remove"></span>
+    
+    <span id="exit" (click)="showExitModal()" class="glyphicon glyphicon-remove"></span>
+    
     <div id="paging" class="row"> 
         <div class="col-xs-5 text-right">
-            <button [disabled]="currentHintIndex === 0" (click)="showPrevHint()" class="paging-button">Previous</button>
+            <button [disabled]="currentHintIndex === 0" (click)="showPrevHint()" class="overlay-button">Previous</button>
         </div>
         <div id="hint-progress" class="col-xs-2 text-center ">
                 <div class="hint-progress-indicator" *ngIf="currentHintIndex > 0">{{currentHintIndex - 1}}</div>
@@ -10,7 +12,27 @@
                 <div class="hint-progress-indicator" *ngIf="currentHintIndex < numberOfHints - 1 ">{{currentHintIndex + 1}}</div>
         </div>
         <div class="col-xs-5 text-left">
-            <button (click)="showNextHint()" class="paging-button">{{nextButtonText}}</button>
+            <button (click)="showNextHint()" class="overlay-button">{{nextButtonText}}</button>
         </div>
-    </div> 
+    </div>
+    
+    <div id="exitModal" [style.display]="exitModalDisplay">
+
+        <div id="exit-modal-content">
+            <div class="row text-center">
+                <h4>Are you sure that you want to skip the tutorial?</h4>
+            </div>
+            &nbsp;
+            <div class="row">
+                <div class="col-xs-5 text-right">
+                    <button (click)='close()' class="overlay-button">Yes</button>
+                </div>
+                <div class="col-xs-5 col-xs-offset-2 text-left">
+                    <button (click)='closeExitModal()' class="overlay-button">No</button>
+                </div>
+            </div>
+        </div>
+          
+    </div>
+
 </div>
