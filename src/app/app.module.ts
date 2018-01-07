@@ -28,7 +28,7 @@ import {PopupComponent} from "./popup/popup.component";
     ChatWindowComponent,
     ChatPageComponent,
     FromNowPipe,
-    PopupComponent
+    PopupComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +41,9 @@ import {PopupComponent} from "./popup/popup.component";
     { provide: APP_INITIALIZER, useFactory: useFactory, deps: [Config], multi: true }
   ],
 
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
+  entryComponents: [PopupComponent]
 })
 export class AppModule { }
 
