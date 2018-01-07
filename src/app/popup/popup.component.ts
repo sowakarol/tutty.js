@@ -1,7 +1,4 @@
-import {
-  ApplicationRef, Component, ComponentFactoryResolver, EmbeddedViewRef, Injector, Input,
-  OnInit
-} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-popup',
@@ -10,11 +7,12 @@ import {
 })
 export class PopupComponent implements OnInit {
 
-  constructor() {};
-
   @Input() public text: string;
   @Input() public idToPopup: string;
   popupDisplay = 'none';
+
+  constructor() {
+  };
 
   ngOnInit() {
   }
@@ -27,6 +25,5 @@ export class PopupComponent implements OnInit {
 
   close() {
     this.popupDisplay = 'none';
-    console.log("kurwa");
   }
 }

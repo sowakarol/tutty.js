@@ -17,6 +17,7 @@ import { ChatWindowComponent } from './chat-window/chat-window.component';
 import { ChatPageComponent } from './chat-page/chat-page.component';
 import { FromNowPipe } from './pipes/from-now.pipe';
 import {PopupComponent} from "./popup/popup.component";
+import {PopupService} from "./popup/popup.service";
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import {PopupComponent} from "./popup/popup.component";
     HttpModule
   ],
   providers: [
-    MessagesService, ThreadsService, UsersService,
+    MessagesService, ThreadsService, UsersService, PopupService,
     Config,
     { provide: APP_INITIALIZER, useFactory: useFactory, deps: [Config], multi: true }
   ],
