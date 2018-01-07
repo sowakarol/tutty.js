@@ -1,6 +1,7 @@
 import {
   AfterViewChecked,
-  AfterViewInit, ChangeDetectorRef,
+  AfterViewInit,
+  ChangeDetectorRef,
   Component,
   ComponentFactory,
   ComponentFactoryResolver,
@@ -36,7 +37,7 @@ export class AppComponent implements AfterViewInit, AfterViewChecked {
               public parser: JsonParserService,
               private resolver: ComponentFactoryResolver,
               public popupService: PopupService,
-              private cdRef:ChangeDetectorRef) {
+              private cdRef: ChangeDetectorRef) {
     ChatExampleData.init(messagesService, threadsService, usersService, popupService);
     console.log(parser.parse());
   }
@@ -50,13 +51,16 @@ export class AppComponent implements AfterViewInit, AfterViewChecked {
     this.popupService.popupComponent = this.createComponent();
   }
 
-  ngAfterViewChecked()
-  {
+  ngAfterViewChecked() {
     this.cdRef.detectChanges();
   }
 
-  popup(){
-    this.popupService.pop();
+  popNext() {
+    this.popupService.popNext();
+  }
+
+  popPrev(){
+    this.popupService.popPrev();
   }
 
   createComponent() {

@@ -7,7 +7,8 @@ import {PopupComponent} from "./popup.component";
 export class PopupService {
 
   hints: Array<Hint>;
-  currentHint: Hint;
+  currentHint: number = 0;
+  hintCount: number;
 
   popupComponent: PopupComponent;
 
@@ -15,10 +16,25 @@ export class PopupService {
   };
 
   pop() {
-    let msg: string = this.hints[0].message.toString();
-    let id: string = this.hints[0].id.toString();
+    let msg: string = this.hints[this.currentHint].message.toString();
+    let id: string = this.hints[this.currentHint].id.toString();
     this.popupComponent.popUp(msg, id);
   }
+
+  popNext() {
+    if (this.currentHint != this.hints.length - 1) {
+      this.currentHint++;
+      this.pop();
+    }
+  }
+
+  popPrev() {
+    if (this.currentHint != 0) {
+      this.currentHint--;
+      this.pop();
+    }
+  }
+
 
   setHints(popups) {
     this.hints = popups;
