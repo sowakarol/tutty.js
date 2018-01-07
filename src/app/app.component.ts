@@ -44,10 +44,10 @@ export class AppComponent implements AfterViewInit, AfterViewChecked {
 
   ngAfterViewInit() {
     console.log('afterview');
-    this.popupService.doc = document;
-    let elem3: Element = document.getElementById('messages');
-    this.popupService.elem[0] = elem3;
-    console.log(this.popupService.elem[0]);
+    // this.popupService.setDoc(document);
+    this.popupService.elem[0] = document.getElementById('chat-page');
+    this.popupService.elem[1] = document.getElementById('messages');
+    // console.log(this.popupService.elem[0]);
     this.popupService.popupComponent = this.createComponent();
   }
 

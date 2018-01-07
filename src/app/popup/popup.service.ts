@@ -8,16 +8,20 @@ export class PopupService {
 
   hints: Array<Hint>;
   currentHint: number = 0;
-  doc;
   elem = [];
 
   popupComponent: PopupComponent;
+
+  constructor() {
+  };
+
   popNext = () => {
     if (this.currentHint != this.hints.length - 1) {
       this.currentHint++;
       this.pop();
     }
   };
+
   popPrev = () => {
     if (this.currentHint != 0) {
       this.currentHint--;
@@ -25,18 +29,15 @@ export class PopupService {
     }
   };
 
-  constructor() {
-  };
-
-  pop() {
+  pop = () => {
     let msg: string = this.hints[this.currentHint].message.toString();
     let id: string = this.hints[this.currentHint].id.toString();
     console.log('logged id for hint:' + id);
-    console.log(this.elem[0]);
+    console.log(this.elem[this.currentHint]);
     this.popupComponent.popUp(msg, id);
-  }
+  };
 
-  setHints(popups) {
+  setHints = (popups) => {
     this.hints = popups;
-  }
+  };
 }
