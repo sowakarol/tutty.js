@@ -56,13 +56,13 @@ const initialMessages: Array<Message> = [
 
 const hints: Array<Hint> = [
   new Hint(
-    "1",
-    "1",
+    "hint for chat-page",
+    "chat-page",
     "1"
   ),
   new Hint(
-    "2",
-    "2",
+    "hint for messages",
+    "messages",
     "2"
   )
 ];
