@@ -16,12 +16,9 @@ import { ChatThreadsComponent } from './chat-threads/chat-threads.component';
 import { ChatWindowComponent } from './chat-window/chat-window.component';
 import { ChatPageComponent } from './chat-page/chat-page.component';
 import { FromNowPipe } from './pipes/from-now.pipe';
-<<<<<<< 2ee7c12e66bc5f7e9f429fabef0dedb491a4f218
 import {PopupComponent} from "./popup/popup.component";
 import {PopupService} from "./popup/popup.service";
-=======
 import { OverlayComponent } from './overlay/overlay.component';
->>>>>>> created overlay view draft
 
 @NgModule({
   declarations: [
@@ -33,11 +30,8 @@ import { OverlayComponent } from './overlay/overlay.component';
     ChatWindowComponent,
     ChatPageComponent,
     FromNowPipe,
-<<<<<<< 2ee7c12e66bc5f7e9f429fabef0dedb491a4f218
     PopupComponent,
-=======
     OverlayComponent
->>>>>>> created overlay view draft
   ],
   imports: [
     BrowserModule,
@@ -56,7 +50,7 @@ import { OverlayComponent } from './overlay/overlay.component';
 })
 export class AppModule { }
 
-export function useFactory(config:Config){
+export function useFactory(config: Config) {
   return  () => config.load();
 }
 

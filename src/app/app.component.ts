@@ -23,13 +23,9 @@ import {PopupService} from "./popup/popup.service";
   styleUrls: ['./app.component.css'],
   providers: [JsonParserService]
 })
-export class AppComponent implements AfterViewInit, AfterViewChecked {
+export class AppComponent {
 
-  @ViewChild(
-    "popupContainer", {
-      read: ViewContainerRef
-    }
-  ) popupContainer;
+
 
   constructor(public messagesService: MessagesService,
               public threadsService: ThreadsService,
@@ -42,30 +38,25 @@ export class AppComponent implements AfterViewInit, AfterViewChecked {
     console.log(parser.parse());
   }
 
-  ngAfterViewInit() {
-    console.log('afterview');
-    // this.popupService.setDoc(document);
-    this.popupService.elem[0] = document.getElementById('chat-page');
-    this.popupService.elem[1] = document.getElementById('messages');
-    // console.log(this.popupService.elem[0]);
-    this.popupService.popupComponent = this.createComponent();
-  }
+  // ngAfterViewInit() {
+  //   console.log('afterview');
+  //   // this.popupService.setDoc(document);
+  //   this.popupService.elem[0] = document.getElementById('chat-page');
+  //   this.popupService.elem[1] = document.getElementById('messages');
+  //   // console.log(this.popupService.elem[0]);
+  //   this.popupService.popupComponent = this.createComponent();
+  // }
 
-  ngAfterViewChecked() {
-    this.cdRef.detectChanges();
-  }
+  // ngAfterViewChecked() {
+  //   this.cdRef.detectChanges();
+  // }
 
-  popNext() {
-    this.popupService.popNext();
-  }
+  // popNext() {
+  //   this.popupService.popNext();
+  // }
 
-  popPrev(){
-    this.popupService.popPrev();
-  }
+  // popPrev(){
+  //   this.popupService.popPrev();
+  // }
 
-  createComponent() {
-    this.popupContainer.clear();
-    const factory: ComponentFactory<any> = this.resolver.resolveComponentFactory(PopupComponent);
-    return this.popupContainer.createComponent(factory).instance;
-  }
 }
