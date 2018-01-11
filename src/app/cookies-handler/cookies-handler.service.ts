@@ -27,7 +27,9 @@ export class CookiesHandlerService {
       id && shownElements.push(id);
       newVal = shownElements.join(this.SEPARATOR);
       console.log(newVal);      
-      this._cookieService.put(this.COOKIE_KEY, newVal, { expires: new Date(2027, 12, 31) });
+      this._cookieService.put(this.COOKIE_KEY, newVal, { 
+        expires: new Date(2027, 12, 31),
+        path: '/' });
     }
 
     public resetAll(): void {

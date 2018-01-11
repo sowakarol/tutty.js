@@ -4,8 +4,7 @@ import { CookiesHandlerService } from '../cookies-handler/cookies-handler.servic
 @Component({
   selector: 'cookie-test',
   templateUrl: './cookie-test.component.html',
-  styleUrls: ['./cookie-test.component.css'],
-  providers: [CookiesHandlerService]
+  styleUrls: ['./cookie-test.component.css']
 })
 export class CookieTestComponent {
 

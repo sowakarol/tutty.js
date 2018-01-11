@@ -18,6 +18,7 @@ import { ChatWindowComponent } from './chat-window/chat-window.component';
 import { ChatPageComponent } from './chat-page/chat-page.component';
 import { FromNowPipe } from './pipes/from-now.pipe';
 import { CookieTestComponent } from './cookie-test/cookie-test.component';
+import { CookiesHandlerService } from './cookies-handler/cookies-handler.service';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { CookieTestComponent } from './cookie-test/cookie-test.component';
   providers: [
     MessagesService, ThreadsService, UsersService,
     Config,
+    CookiesHandlerService,
     { provide: APP_INITIALIZER, useFactory: useFactory, deps: [Config], multi: true }
   ],
 
