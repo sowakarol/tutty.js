@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { CookieModule } from 'ngx-cookie';
 
 import { UsersService } from './user/users.service';
 import { ThreadsService } from './thread/threads.service';
@@ -19,6 +20,8 @@ import { FromNowPipe } from './pipes/from-now.pipe';
 import {PopupComponent} from "./popup/popup.component";
 import {PopupService} from "./popup/popup.service";
 import { OverlayComponent } from './overlay/overlay.component';
+import { CookieTestComponent } from './cookie-test/cookie-test.component';
+import { CookiesHandlerService } from './cookies-handler/cookies-handler.service';
 
 @NgModule({
   declarations: [
@@ -30,17 +33,23 @@ import { OverlayComponent } from './overlay/overlay.component';
     ChatWindowComponent,
     ChatPageComponent,
     FromNowPipe,
+<<<<<<< HEAD
     PopupComponent,
     OverlayComponent
+=======
+    CookieTestComponent
+>>>>>>> dev
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    CookieModule.forRoot()
   ],
   providers: [
     MessagesService, ThreadsService, UsersService, PopupService,
     Config,
+    CookiesHandlerService,
     { provide: APP_INITIALIZER, useFactory: useFactory, deps: [Config], multi: true }
   ],
 
