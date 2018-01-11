@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { CookieModule } from 'ngx-cookie';
 
 import { UsersService } from './user/users.service';
 import { ThreadsService } from './thread/threads.service';
@@ -16,6 +17,7 @@ import { ChatThreadsComponent } from './chat-threads/chat-threads.component';
 import { ChatWindowComponent } from './chat-window/chat-window.component';
 import { ChatPageComponent } from './chat-page/chat-page.component';
 import { FromNowPipe } from './pipes/from-now.pipe';
+import { CookieTestComponent } from './cookie-test/cookie-test.component';
 
 @NgModule({
   declarations: [
@@ -26,12 +28,14 @@ import { FromNowPipe } from './pipes/from-now.pipe';
     ChatThreadsComponent,
     ChatWindowComponent,
     ChatPageComponent,
-    FromNowPipe
+    FromNowPipe,
+    CookieTestComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    CookieModule.forRoot()
   ],
   providers: [
     MessagesService, ThreadsService, UsersService,
