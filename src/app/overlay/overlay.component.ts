@@ -1,12 +1,9 @@
 import { Component, OnInit, AfterViewChecked, AfterViewInit, ViewChild, ViewContainerRef, ComponentFactory,
   ComponentFactoryResolver, ChangeDetectorRef} from '@angular/core';
 import { PopupService } from '../popup/popup.service';
-import {PopupComponent} from '../popup/popup.component';
-
-
+import { PopupComponent } from '../popup/popup.component';
 
 const TEST_DATA: number[] = [1 , 2, 3, 4, 5, 6, 7, 8, 9];
-
 
 @Component({
   selector: 'app-overlay',
@@ -15,13 +12,16 @@ const TEST_DATA: number[] = [1 , 2, 3, 4, 5, 6, 7, 8, 9];
 })
 export class OverlayComponent implements OnInit, AfterViewInit, AfterViewChecked {
 
-    @ViewChild(
-    "popupContainer", {
+  @ViewChild(
+    'popupContainer', {
       read: ViewContainerRef
     }
   ) popupContainer;
 
-  constructor(public popupService: PopupService, private resolver: ComponentFactoryResolver, private cdRef: ChangeDetectorRef) {}
+  constructor(
+    public popupService: PopupService,
+    private resolver: ComponentFactoryResolver,
+    private cdRef: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.currentHintIndex = 0;
