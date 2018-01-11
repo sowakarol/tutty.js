@@ -33,12 +33,9 @@ import { CookiesHandlerService } from './cookies-handler/cookies-handler.service
     ChatWindowComponent,
     ChatPageComponent,
     FromNowPipe,
-<<<<<<< HEAD
     PopupComponent,
-    OverlayComponent
-=======
+    OverlayComponent,
     CookieTestComponent
->>>>>>> dev
   ],
   imports: [
     BrowserModule,
