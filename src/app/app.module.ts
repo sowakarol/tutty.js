@@ -17,6 +17,9 @@ import { ChatThreadsComponent } from './chat-threads/chat-threads.component';
 import { ChatWindowComponent } from './chat-window/chat-window.component';
 import { ChatPageComponent } from './chat-page/chat-page.component';
 import { FromNowPipe } from './pipes/from-now.pipe';
+import {PopupComponent} from "./popup/popup.component";
+import {PopupService} from "./popup/popup.service";
+import { OverlayComponent } from './overlay/overlay.component';
 import { CookieTestComponent } from './cookie-test/cookie-test.component';
 import { CookiesHandlerService } from './cookies-handler/cookies-handler.service';
 
@@ -30,6 +33,8 @@ import { CookiesHandlerService } from './cookies-handler/cookies-handler.service
     ChatWindowComponent,
     ChatPageComponent,
     FromNowPipe,
+    PopupComponent,
+    OverlayComponent,
     CookieTestComponent
   ],
   imports: [
@@ -39,17 +44,19 @@ import { CookiesHandlerService } from './cookies-handler/cookies-handler.service
     CookieModule.forRoot()
   ],
   providers: [
-    MessagesService, ThreadsService, UsersService,
+    MessagesService, ThreadsService, UsersService, PopupService,
     Config,
     CookiesHandlerService,
     { provide: APP_INITIALIZER, useFactory: useFactory, deps: [Config], multi: true }
   ],
 
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
+  entryComponents: [PopupComponent]
 })
 export class AppModule { }
 
-export function useFactory(config:Config){
+export function useFactory(config: Config) {
   return  () => config.load();
 }
 

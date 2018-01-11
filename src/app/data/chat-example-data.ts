@@ -6,6 +6,8 @@ import { MessagesService } from '../message/messages.service';
 import { ThreadsService } from '../thread/threads.service';
 import { UsersService } from '../user/users.service';
 import * as moment from 'moment';
+import {PopupService} from "../popup/popup.service";
+import {Hint} from "../util/classes";
 
 // the person using the app us Juliet
 const me: User      = new User('Juliet', 'assets/images/avatars/female-avatar-1.png');
@@ -52,10 +54,24 @@ const initialMessages: Array<Message> = [
   }),
 ];
 
+const hints: Array<Hint> = [
+  new Hint(
+    "hint for chat-page",
+    "chat-page",
+    "1"
+  ),
+  new Hint(
+    "hint for messages",
+    "messages",
+    "2"
+  )
+];
+
 export class ChatExampleData {
   static init(messagesService: MessagesService,
               threadsService: ThreadsService,
-              UsersService: UsersService): void {
+              UsersService: UsersService,
+              popupService: PopupService): void {
 
     // TODO make `messages` hot
     messagesService.messages.subscribe(() => ({}));
@@ -67,6 +83,8 @@ export class ChatExampleData {
     initialMessages.map( (message: Message) => messagesService.addMessage(message) );
 
     threadsService.setCurrentThread(tEcho);
+
+    popupService.setHints(hints);
 
     this.setupBots(messagesService);
   }
