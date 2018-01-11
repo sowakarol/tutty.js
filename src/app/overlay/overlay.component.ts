@@ -8,7 +8,8 @@ const TEST_DATA: number[] = [1 , 2, 3, 4, 5, 6, 7, 8, 9];
 @Component({
   selector: 'app-overlay',
   templateUrl: './overlay.component.html',
-  styleUrls: ['./overlay.component.css']
+  styleUrls: ['./overlay.component.css'],
+  entryComponents: [PopupComponent]
 })
 export class OverlayComponent implements OnInit, AfterViewInit, AfterViewChecked {
 

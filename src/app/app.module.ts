@@ -44,7 +44,7 @@ import { CookiesHandlerService } from './cookies-handler/cookies-handler.service
     CookieModule.forRoot()
   ],
   providers: [
-    MessagesService, ThreadsService, UsersService, PopupService,
+    MessagesService, ThreadsService, UsersService,
     Config,
     CookiesHandlerService,
     { provide: APP_INITIALIZER, useFactory: useFactory, deps: [Config], multi: true }
@@ -52,7 +52,6 @@ import { CookiesHandlerService } from './cookies-handler/cookies-handler.service
 
   bootstrap: [AppComponent],
 
-  entryComponents: [PopupComponent]
 })
 export class AppModule { }
 

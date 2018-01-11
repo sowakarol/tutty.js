@@ -11,7 +11,7 @@ import {PopupService} from './popup/popup.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [JsonParserService]
+  providers: [JsonParserService, PopupService]
 })
 export class AppComponent {
   constructor(public messagesService: MessagesService,
