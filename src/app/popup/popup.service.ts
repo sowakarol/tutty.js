@@ -55,7 +55,7 @@ export class PopupService {
     let divRef = this.elem[this.currentHint];
 
     this.currentZIndex = divRef.style.zIndex;
-    this.set(divRef, this.hints[this.currentHint]);
+    this.set(divRef);
 
     divRef.style.zIndex = 9999;
     divRef.style.position = 'absolute';
@@ -63,30 +63,28 @@ export class PopupService {
     this.popupComponent.popUp(msg, id);
   };
 
-  //todo: change to checking for borders
-  set = (divRef, hint) => {
+  //todo: change to something more responsive
+  set = (divRef) => {
     let boundingClientRect = divRef.getBoundingClientRect();
-    let direction = hint.direction;
-    if (direction === 'left') {
-      this.popupComponent.popupLeft = boundingClientRect.right + 50 + 'px';
+    let left = boundingClientRect.left;
+    let right = boundingClientRect.right;
+    let top = boundingClientRect.top;
+    let bottom = boundingClientRect.bottom;
+
+    if (left >= right) {
+      this.popupComponent.popupLeft = '0px';
       this.popupComponent.popupRight = boundingClientRect.left + 'px';
-      this.popupComponent.popupTop = boundingClientRect.bottom + 'px';
+    } else {
+      this.popupComponent.popupLeft = boundingClientRect.right + 'px';
+      this.popupComponent.popupRight = '0px';
+    }
+
+    if (top >= bottom) {
+      this.popupComponent.popupTop = '0px';
       this.popupComponent.popupBottom = boundingClientRect.top + 'px';
-    } else if (direction === 'right') {
-      this.popupComponent.popupLeft = boundingClientRect.right + 'px';
-      this.popupComponent.popupRight = boundingClientRect.left + 50 + 'px';
+    } else {
       this.popupComponent.popupTop = boundingClientRect.bottom + 'px';
-      this.popupComponent.popupBottom = boundingClientRect.top + 'px';
-    } else if (direction === 'top') {
-      this.popupComponent.popupLeft = boundingClientRect.right + 'px';
-      this.popupComponent.popupRight = boundingClientRect.left + 'px';
-      this.popupComponent.popupTop = boundingClientRect.bottom + 50 + 'px';
-      this.popupComponent.popupBottom = boundingClientRect.bottom + 'px';
-    } else if (direction === 'bottom') {
-      this.popupComponent.popupLeft = boundingClientRect.right + 'px';
-      this.popupComponent.popupRight = boundingClientRect.left + 'px';
-      this.popupComponent.popupTop = boundingClientRect.bottom + 'px';
-      this.popupComponent.popupBottom = boundingClientRect.top + 50 + 'px';
+      this.popupComponent.popupBottom = '0px';
     }
   };
 
