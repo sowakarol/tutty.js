@@ -1,4 +1,9 @@
-<div id="popup" [style.display]="popupDisplay">
+<div id="popup"
+     [style.display]="popupDisplay"
+     [style.left]="popupLeft"
+     [style.right]="popupRight"
+     [style.top]="popupTop"
+     [style.bottom]="popupBottom">
   {{text}}
   <span id="exit" (click)="close()">&#10005;</span>
 </div>

@@ -10,6 +10,10 @@ export class PopupComponent implements OnInit {
   @Input() public text: string;
   @Input() public idToPopup: string;
   popupDisplay = 'none';
+  popupLeft = '0px';
+  popupTop = '0px';
+  popupBottom = '0px';
+  popupRight = '0px';
 
   constructor() {
   };

@@ -30,11 +30,9 @@ export class OverlayComponent implements OnInit, AfterViewInit, AfterViewChecked
   }
 
   ngAfterViewInit() {
-    console.log('afterview');
-    // this.popupService.setDoc(document);
-    this.popupService.elem[0] = document.getElementById('chat-page');
-    this.popupService.elem[1] = document.getElementById('messages');
-    // console.log(this.popupService.elem[0]);
+    this.popupService.elem[0] = document.getElementById('messages');
+    this.popupService.elem[1] = document.getElementById('navbar');
+    this.popupService.elem[2] = document.getElementById('avatar');
     this.popupService.popupComponent = this.createComponent();
   }
 
@@ -63,7 +61,7 @@ export class OverlayComponent implements OnInit, AfterViewInit, AfterViewChecked
 
     this.popupService.popNext();
 
-  }
+  };
 
   showPrevHint = () => {
     this.currentHintIndex--;
@@ -73,7 +71,7 @@ export class OverlayComponent implements OnInit, AfterViewInit, AfterViewChecked
 
     this.popupService.popPrev();
 
-  }
+  };
 
   createComponent() {
     this.popupContainer.clear();
