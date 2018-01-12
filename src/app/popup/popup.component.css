@@ -1,21 +1,19 @@
 #popup {
-  background-color: white;
-  width: 200px;
-  height: 50px;
-  border: 3px solid black;
-  padding: 25px;
+  width:200px;
   margin: 25px;
-  /*display: none;*/
-  display: block;
-  border-radius: 10px;
-  position:absolute;
-  z-index: 2137;
-}
-
-#exit {
+  height: 60px;
+  text-align: center;
+  vertical-align: top;
   position: absolute;
-  cursor: pointer;
-  top: 0;
-  font-size: 20px;
-  right: 6px;
+  z-index: 2137;
+  display: block;
+  color: #666;
+  background-color: #eee;
+  font-size: 15px;
+  padding: 10px 30px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border: 1px solid rgba(0,0,0,0.3);
+  border-bottom-width: 3px;
 }
