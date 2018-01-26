@@ -1,4 +1,4 @@
-import {Injectable} from "@angular/core";
+import {AfterViewInit, Injectable} from "@angular/core";
 import {Hint} from "../util/classes";
 import {PopupComponent} from "./popup.component";
 
@@ -72,31 +72,32 @@ export class PopupService {
     let right = boundingClientRect.right;
     let top = boundingClientRect.top;
     let bottom = boundingClientRect.bottom;
-    let h = window.screen.height;
-    let w = window.screen.width;
+    let h = window.innerHeight;
+    let w = window.innerWidth;
 
     if(direction === "right"){
       console.log("right");
       this.popupComponent.popupTop = top+'px';
+      this.popupComponent.popupBottom = '';
       this.popupComponent.popupRight = 'initial';
       this.popupComponent.popupLeft = w-right + 'px';
     }
     if(direction === "left"){
       console.log("left");
-      console.log(top);
+      this.popupComponent.popupBottom = '';
       this.popupComponent.popupTop = top +'px';
       this.popupComponent.popupRight = w-left + 'px';
       this.popupComponent.popupLeft = 'initial';
     }
     if(direction === "top"){
       console.log("top");
-      this.popupComponent.popupTop = 'initial';
+      this.popupComponent.popupTop = '';
       this.popupComponent.popupBottom = h - top + 'px';
       this.popupComponent.popupLeft = left + 'px';
     }
     if(direction === "bottom"){
       this.popupComponent.popupTop = bottom +'px';
-      this.popupComponent.popupBottom = 'initial';
+      this.popupComponent.popupBottom = '';
       this.popupComponent.popupLeft = left + 'px';
       console.log("bot");
     }
@@ -106,3 +107,4 @@ export class PopupService {
     this.hints = popups;
   };
 }
+
