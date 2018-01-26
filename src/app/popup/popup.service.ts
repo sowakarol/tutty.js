@@ -61,6 +61,7 @@ export class PopupService {
 
     divRef.style.zIndex = 9999999;
     divRef.style.position = 'relative';
+    divRef.style.pointerEvents = 'none';
 
     this.popupComponent.popUp(msg, id);
   };
