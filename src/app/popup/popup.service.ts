@@ -59,7 +59,7 @@ export class PopupService {
     this.currentZIndex = divRef.style.zIndex;
     this.set(divRef, direction);
 
-    divRef.style.zIndex = 9999;
+    divRef.style.zIndex = 9999999;
     divRef.style.position = 'relative';
 
     this.popupComponent.popUp(msg, id);
