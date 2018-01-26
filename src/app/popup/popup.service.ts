@@ -77,13 +77,14 @@ export class PopupService {
 
     if(direction === "right"){
       console.log("right");
-      this.popupComponent.popupTop = top;
+      this.popupComponent.popupTop = top+'px';
       this.popupComponent.popupRight = 'initial';
       this.popupComponent.popupLeft = w-right + 'px';
     }
     if(direction === "left"){
       console.log("left");
-      this.popupComponent.popupTop = top;
+      console.log(top);
+      this.popupComponent.popupTop = top +'px';
       this.popupComponent.popupRight = w-left + 'px';
       this.popupComponent.popupLeft = 'initial';
     }
