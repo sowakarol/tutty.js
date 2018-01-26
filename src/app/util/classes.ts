@@ -1,9 +1,9 @@
 export interface HintCollectionInterface {
     name:String;
-    hints: Hint[];
+    hints: HintInterface[];
 }
 
-export interface HintInterace {
+export interface HintInterface {
     id:String;
     message:String;
     direction:String;
@@ -19,7 +19,7 @@ export class HintCollection implements HintCollectionInterface{
     }
 }
 
-export class Hint implements HintInterace {
+export class Hint implements HintInterface {
     id:String;
     message:String;
     direction:String;
