@@ -49,13 +49,15 @@ export class PopupService {
   pop = () => {
     let msg: string = this.hints[this.currentHint].message.toString();
     let id: string = this.hints[this.currentHint].id.toString();
+    let direction: string = this.hints[this.currentHint].direction.toString();
 
     console.log('logged id for hint:' + id);
+    console.log(this.hints);
 
     let divRef = this.elem[this.currentHint];
 
     this.currentZIndex = divRef.style.zIndex;
-    this.set(divRef);
+    this.set(divRef, direction);
 
     divRef.style.zIndex = 9999;
     divRef.style.position = 'absolute';
@@ -64,27 +66,38 @@ export class PopupService {
   };
 
   //todo: change to something more responsive
-  set = (divRef) => {
+  set = (divRef, direction) => {
     let boundingClientRect = divRef.getBoundingClientRect();
     let left = boundingClientRect.left;
     let right = boundingClientRect.right;
     let top = boundingClientRect.top;
     let bottom = boundingClientRect.bottom;
+    let h = window.screen.height;
+    let w = window.screen.width;
 
-    if (left >= right) {
-      this.popupComponent.popupLeft = '0px';
-      this.popupComponent.popupRight = boundingClientRect.left + 'px';
-    } else {
-      this.popupComponent.popupLeft = boundingClientRect.right + 'px';
-      this.popupComponent.popupRight = '0px';
+    if(direction === "right"){
+      console.log("right");
+      this.popupComponent.popupTop = top;
+      this.popupComponent.popupRight = 'initial';
+      this.popupComponent.popupLeft = w-right + 'px';
     }
-
-    if (top >= bottom) {
-      this.popupComponent.popupTop = '0px';
-      this.popupComponent.popupBottom = boundingClientRect.top + 'px';
-    } else {
-      this.popupComponent.popupTop = boundingClientRect.bottom + 'px';
-      this.popupComponent.popupBottom = '0px';
+    if(direction === "left"){
+      console.log("left");
+      this.popupComponent.popupTop = top;
+      this.popupComponent.popupRight = w-left + 'px';
+      this.popupComponent.popupLeft = 'initial';
+    }
+    if(direction === "top"){
+      console.log("top");
+      this.popupComponent.popupTop = 'initial';
+      this.popupComponent.popupBottom = h - top + 'px';
+      this.popupComponent.popupLeft = left + 'px';
+    }
+    if(direction === "bottom"){
+      this.popupComponent.popupTop = bottom +'px';
+      this.popupComponent.popupBottom = 'initial';
+      this.popupComponent.popupLeft = left + 'px';
+      console.log("bot");
     }
   };
 

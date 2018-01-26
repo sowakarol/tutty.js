@@ -18,7 +18,6 @@ import { ChatWindowComponent } from './chat-window/chat-window.component';
 import { ChatPageComponent } from './chat-page/chat-page.component';
 import { FromNowPipe } from './pipes/from-now.pipe';
 import {PopupComponent} from "./popup/popup.component";
-import {PopupService} from "./popup/popup.service";
 import { OverlayComponent } from './overlay/overlay.component';
 import { CookieTestComponent } from './cookie-test/cookie-test.component';
 import { CookiesHandlerService } from './cookies-handler/cookies-handler.service';

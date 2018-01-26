@@ -33,6 +33,7 @@ export class OverlayComponent implements OnInit, AfterViewInit, AfterViewChecked
     this.popupService.elem[0] = document.getElementById('messages');
     this.popupService.elem[1] = document.getElementById('navbar');
     this.popupService.elem[2] = document.getElementById('avatar');
+    this.popupService.elem[3] = document.getElementById('dd');
     this.popupService.popupComponent = this.createComponent();
   }
 

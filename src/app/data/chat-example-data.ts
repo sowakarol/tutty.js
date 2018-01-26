@@ -58,7 +58,7 @@ const hints: Array<Hint> = [
   new Hint(
     "hint for messages",
     "messages",
-    "right"
+    "left"
   ),
   new Hint(
     "hint for navbar",
@@ -68,6 +68,11 @@ const hints: Array<Hint> = [
   new Hint(
     "hint for avatar",
     "avatar",
+    "top"
+  ),
+  new Hint(
+    "hint for dd",
+    "dd",
     "top"
   )
 ];

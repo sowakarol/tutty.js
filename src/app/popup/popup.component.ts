@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, HostListener, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-popup',
@@ -14,6 +14,13 @@ export class PopupComponent implements OnInit {
   popupTop = '0px';
   popupBottom = '0px';
   popupRight = '0px';
+
+
+  @HostListener('window:resize')
+  onResize() {
+    // call our matchHeight function here
+    // this.matchHeight(this.el.nativeElement, this.myMatchHeight);
+  }
 
   constructor() {
   };
