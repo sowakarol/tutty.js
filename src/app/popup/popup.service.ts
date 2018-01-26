@@ -56,53 +56,15 @@ export class PopupService {
     let divRef = this.elem[this.currentHint];
 
     this.currentZIndex = divRef.style.zIndex;
-    this.set(divRef, direction);
+    this.popupComponent.divRef= divRef;
+    this.popupComponent.direction= direction;
+    this.popupComponent.set(divRef, direction);
 
     divRef.style.zIndex = 9999999;
     divRef.style.position = 'relative';
     divRef.style.pointerEvents = 'none';
 
     this.popupComponent.popUp(msg, id);
-  };
-
-  set = (divRef, direction) => {
-    let boundingClientRect = divRef.getBoundingClientRect();
-    this.popupComponent.divRef= divRef;
-    this.popupComponent.direction= direction;
-    let left = boundingClientRect.left;
-    let right = boundingClientRect.right;
-    let top = boundingClientRect.top;
-    let bottom = boundingClientRect.bottom;
-    let h = window.innerHeight;
-    let w = window.innerWidth;
-    let height = document.getElementById('popup').getBoundingClientRect().height;
-
-    if(direction === "right"){
-      console.log("right");
-      this.popupComponent.popupTop = top+'px';
-      this.popupComponent.popupBottom = '';
-      this.popupComponent.popupRight = 'initial';
-      this.popupComponent.popupLeft = w-right + 'px';
-    }
-    if(direction === "left"){
-      console.log("left");
-      this.popupComponent.popupBottom = '';
-      this.popupComponent.popupTop = top +'px';
-      this.popupComponent.popupRight = w-left + 'px';
-      this.popupComponent.popupLeft = 'initial';
-    }
-    if(direction === "top"){
-      console.log("top");
-      this.popupComponent.popupTop = top - height - 2*this.popupComponent.margin + 'px' + '';
-      this.popupComponent.popupBottom = '';
-      this.popupComponent.popupLeft = left + 'px';
-    }
-    if(direction === "bottom"){
-      this.popupComponent.popupTop = bottom +'px';
-      this.popupComponent.popupBottom = '';
-      this.popupComponent.popupLeft = left + 'px';
-      console.log("bot");
-    }
   };
 
   setHints = (popups) => {
