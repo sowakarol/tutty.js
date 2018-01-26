@@ -1,7 +1,6 @@
-import {AfterViewInit, Injectable} from "@angular/core";
+import {Injectable} from "@angular/core";
 import {Hint} from "../util/classes";
 import {PopupComponent} from "./popup.component";
-
 
 @Injectable()
 export class PopupService {
@@ -66,15 +65,17 @@ export class PopupService {
     this.popupComponent.popUp(msg, id);
   };
 
-  //todo: change to something more responsive
   set = (divRef, direction) => {
     let boundingClientRect = divRef.getBoundingClientRect();
+    this.popupComponent.divRef= divRef;
+    this.popupComponent.direction= direction;
     let left = boundingClientRect.left;
     let right = boundingClientRect.right;
     let top = boundingClientRect.top;
     let bottom = boundingClientRect.bottom;
     let h = window.innerHeight;
     let w = window.innerWidth;
+    let height = document.getElementById('popup').getBoundingClientRect().height;
 
     if(direction === "right"){
       console.log("right");
@@ -92,8 +93,8 @@ export class PopupService {
     }
     if(direction === "top"){
       console.log("top");
-      this.popupComponent.popupTop = '';
-      this.popupComponent.popupBottom = h - top + 'px';
+      this.popupComponent.popupTop = top - height - 2*this.popupComponent.margin + 'px' + '';
+      this.popupComponent.popupBottom = '';
       this.popupComponent.popupLeft = left + 'px';
     }
     if(direction === "bottom"){

@@ -14,12 +14,13 @@ export class PopupComponent implements OnInit {
   popupTop = '0px';
   popupBottom = '0px';
   popupRight = '0px';
-
+  margin = 25;
+  divRef;
+  direction;
 
   @HostListener('window:resize')
   onResize() {
-    // call our matchHeight function here
-    // this.matchHeight(this.el.nativeElement, this.myMatchHeight);
+    this.set(this.divRef,this.direction);
   }
 
   constructor() {
@@ -37,4 +38,42 @@ export class PopupComponent implements OnInit {
   close() {
     this.popupDisplay = 'none';
   }
+
+  set = (divRef, direction) => {
+    let boundingClientRect = divRef.getBoundingClientRect();
+    this.divRef= divRef;
+    let left = boundingClientRect.left;
+    let right = boundingClientRect.right;
+    let top = boundingClientRect.top;
+    let bottom = boundingClientRect.bottom;
+    let w = window.innerWidth;
+    let height = document.getElementById('popup').getBoundingClientRect().height;
+
+    if(direction === "right"){
+      console.log("right");
+      this.popupTop = top+'px';
+      this.popupBottom = '';
+      this.popupRight = 'initial';
+      this.popupLeft = w-right + 'px';
+    }
+    if(direction === "left"){
+      console.log("left");
+      this.popupBottom = '';
+      this.popupTop = top +'px';
+      this.popupRight = w-left + 'px';
+      this.popupLeft = 'initial';
+    }
+    if(direction === "top"){
+      console.log("top");
+      this.popupTop = top - height - 2*this.margin + 'px' + '';
+      this.popupBottom = '';
+      this.popupLeft = left + 'px';
+    }
+    if(direction === "bottom"){
+      this.popupTop = bottom +'px';
+      this.popupBottom = '';
+      this.popupLeft = left + 'px';
+      console.log("bot");
+    }
+  };
 }
