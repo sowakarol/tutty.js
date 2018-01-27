@@ -2,7 +2,6 @@ import {Injectable} from "@angular/core";
 import {Hint} from "../util/classes";
 import {PopupComponent} from "./popup.component";
 
-
 @Injectable()
 export class PopupService {
 
@@ -57,52 +56,19 @@ export class PopupService {
     let divRef = this.elem[this.currentHint];
 
     this.currentZIndex = divRef.style.zIndex;
-    this.set(divRef, direction);
+    this.popupComponent.divRef= divRef;
+    this.popupComponent.direction= direction;
+    this.popupComponent.set(divRef, direction);
 
-    divRef.style.zIndex = 9999;
-    divRef.style.position = 'absolute';
+    divRef.style.zIndex = 9999999;
+    divRef.style.position = 'relative';
+    divRef.style.pointerEvents = 'none';
 
     this.popupComponent.popUp(msg, id);
-  };
-
-  //todo: change to something more responsive
-  set = (divRef, direction) => {
-    let boundingClientRect = divRef.getBoundingClientRect();
-    let left = boundingClientRect.left;
-    let right = boundingClientRect.right;
-    let top = boundingClientRect.top;
-    let bottom = boundingClientRect.bottom;
-    let h = window.screen.height;
-    let w = window.screen.width;
-
-    if(direction === "right"){
-      console.log("right");
-      this.popupComponent.popupTop = top+'px';
-      this.popupComponent.popupRight = 'initial';
-      this.popupComponent.popupLeft = w-right + 'px';
-    }
-    if(direction === "left"){
-      console.log("left");
-      console.log(top);
-      this.popupComponent.popupTop = top +'px';
-      this.popupComponent.popupRight = w-left + 'px';
-      this.popupComponent.popupLeft = 'initial';
-    }
-    if(direction === "top"){
-      console.log("top");
-      this.popupComponent.popupTop = 'initial';
-      this.popupComponent.popupBottom = h - top + 'px';
-      this.popupComponent.popupLeft = left + 'px';
-    }
-    if(direction === "bottom"){
-      this.popupComponent.popupTop = bottom +'px';
-      this.popupComponent.popupBottom = 'initial';
-      this.popupComponent.popupLeft = left + 'px';
-      console.log("bot");
-    }
   };
 
   setHints = (popups) => {
     this.hints = popups;
   };
 }
+

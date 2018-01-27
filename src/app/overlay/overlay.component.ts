@@ -5,7 +5,7 @@ import { PopupComponent } from '../popup/popup.component';
 import { HintProviderService } from '../hint-provider/hint-provider.service';
 import { Hint } from '../util/classes';
 
-const TEST_DATA: number[] = [1 , 2, 3, 4, 5, 6, 7, 8, 9];
+const TEST_DATA: number[] = [0, 1 , 2, 3, 4, 5, 6, 7, 8, 9];
 
 @Component({
   selector: 'app-overlay',
@@ -41,6 +41,7 @@ export class OverlayComponent implements OnInit, AfterViewInit, AfterViewChecked
   ngAfterViewInit() {
     this.popupService.elem = this.getElements(this.hints);
     this.popupService.popupComponent = this.createComponent();
+    this.popupService.popNext();
   }
 
   ngAfterViewChecked() {
@@ -68,7 +69,7 @@ export class OverlayComponent implements OnInit, AfterViewInit, AfterViewChecked
 
     this.popupService.popNext();
 
-  };
+  }
 
   showPrevHint = () => {
     this.currentHintIndex--;
@@ -78,7 +79,7 @@ export class OverlayComponent implements OnInit, AfterViewInit, AfterViewChecked
 
     this.popupService.popPrev();
 
-  };
+  }
 
   createComponent() {
     this.popupContainer.clear();
