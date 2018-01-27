@@ -2,6 +2,8 @@ import { Component, OnInit, AfterViewChecked, AfterViewInit, ViewChild, ViewCont
   ComponentFactoryResolver, ChangeDetectorRef} from '@angular/core';
 import { PopupService } from '../popup/popup.service';
 import { PopupComponent } from '../popup/popup.component';
+import { HintProviderService } from '../hint-provider/hint-provider.service';
+import { Hint } from '../util/classes';
 
 const TEST_DATA: number[] = [1 , 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -9,7 +11,8 @@ const TEST_DATA: number[] = [1 , 2, 3, 4, 5, 6, 7, 8, 9];
   selector: 'app-overlay',
   templateUrl: './overlay.component.html',
   styleUrls: ['./overlay.component.css'],
-  entryComponents: [PopupComponent]
+  entryComponents: [PopupComponent],
+  providers: [HintProviderService, PopupService]
 })
 export class OverlayComponent implements OnInit, AfterViewInit, AfterViewChecked {
 
@@ -19,21 +22,24 @@ export class OverlayComponent implements OnInit, AfterViewInit, AfterViewChecked
     }
   ) popupContainer;
 
+  private hints: Hint[];
+
   constructor(
     public popupService: PopupService,
     private resolver: ComponentFactoryResolver,
-    private cdRef: ChangeDetectorRef) {}
+    private cdRef: ChangeDetectorRef,
+    private hintsService: HintProviderService) {
+      this.hints = hintsService.getHints("first");
+      this.popupService.setHints(this.hints);
+    }
 
   ngOnInit() {
     this.currentHintIndex = 0;
-    this.numberOfHints = TEST_DATA.length;
+    this.numberOfHints = this.hints.length;
   }
 
   ngAfterViewInit() {
-    this.popupService.elem[0] = document.getElementById('messages');
-    this.popupService.elem[1] = document.getElementById('navbar');
-    this.popupService.elem[2] = document.getElementById('avatar');
-    this.popupService.elem[3] = document.getElementById('dd');
+    this.popupService.elem = this.getElements(this.hints);
     this.popupService.popupComponent = this.createComponent();
   }
 
@@ -85,5 +91,11 @@ export class OverlayComponent implements OnInit, AfterViewInit, AfterViewChecked
   closeExitModal = () => this.exitModalDisplay = 'none';
 
   close = () =>  this.overlayDisplay = 'none';
+
+  getElements(hints: Hint[]): HTMLElement[] {
+    return hints.map((hint) => {
+      return document.getElementById(hint.getId() as string);
+    })
+  }
 
 }

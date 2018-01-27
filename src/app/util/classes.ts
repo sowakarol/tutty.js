@@ -17,6 +17,14 @@ export class HintCollection implements HintCollectionInterface{
         this.name = name;
         this.hints = hints;
     }
+
+    public getName(): String {
+        return this.name;
+    }
+
+    public getHints(): Hint[] {
+        return this.hints;
+    }
 }
 
 export class Hint implements HintInterface {
@@ -28,5 +36,9 @@ export class Hint implements HintInterface {
         this.direction = direction;
         this.id = id;
         this.message = message;
+    }
+
+    public getId(): String {
+        return this.id;
     }
 }

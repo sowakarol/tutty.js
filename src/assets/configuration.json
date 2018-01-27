@@ -4,19 +4,24 @@
         "name": "first",
         "hints":[
           {
-            "id": "id1",
-            "direction" : "right",
-            "message" : "asd"
+            "id": "messages",
+            "direction" : "left",
+            "message" : "hint for messages"
           },
           {
-            "id": "id2",
-            "direction" : "right",
-            "message" : "qwe"
+            "id": "navbar",
+            "direction" : "bottom",
+            "message" : "hint for navbar"
           },
           {
-            "id": "id3",
-            "direction" : "right",
-            "message" : "bcd"       
+            "id": "avatar",
+            "direction" : "top",
+            "message" : "hint for avatar"       
+          },
+          {
+            "id": "dd",
+            "direction" : "top",
+            "message" : "hint for dd"       
           }
         ]
       },

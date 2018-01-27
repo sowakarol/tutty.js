@@ -54,34 +54,10 @@ const initialMessages: Array<Message> = [
   }),
 ];
 
-const hints: Array<Hint> = [
-  new Hint(
-    "hint for messages",
-    "messages",
-    "left"
-  ),
-  new Hint(
-    "hint for navbar",
-    "navbar",
-    "bottom"
-  ),
-  new Hint(
-    "hint for avatar",
-    "avatar",
-    "top"
-  ),
-  new Hint(
-    "hint for dd",
-    "dd",
-    "top"
-  )
-];
-
 export class ChatExampleData {
   static init(messagesService: MessagesService,
               threadsService: ThreadsService,
-              UsersService: UsersService,
-              popupService: PopupService): void {
+              UsersService: UsersService): void {
 
     // TODO make `messages` hot
     messagesService.messages.subscribe(() => ({}));
@@ -93,8 +69,6 @@ export class ChatExampleData {
     initialMessages.map( (message: Message) => messagesService.addMessage(message) );
 
     threadsService.setCurrentThread(tEcho);
-
-    popupService.setHints(hints);
 
     this.setupBots(messagesService);
   }
