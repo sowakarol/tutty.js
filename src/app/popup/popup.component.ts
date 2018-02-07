@@ -1,5 +1,7 @@
 import {Component, HostListener, Input, OnInit} from '@angular/core';
-
+import PopupStrategyInterface from './popup-strategy-interface';
+import {PopupStrategyTop, PopupStrategyRight, PopupStrategyLeft, PopupStrategyBottom} from './popup-strategy-impl';
+ 
 @Component({
   selector: 'app-popup',
   templateUrl: './popup.component.html',
@@ -10,13 +12,10 @@ export class PopupComponent {
   text: String;
   idToPopup: String;
   popupDisplay = 'none';
-  popupLeft = '0px';
-  popupTop = '0px';
-  popupBottom = '0px';
-  popupRight = '0px';
-  margin = 25;
   divRef;
   direction;
+
+  strategy: PopupStrategyInterface;
 
   @HostListener('window:resize')
   onResize() {
@@ -35,39 +34,13 @@ export class PopupComponent {
 
   set = (divRef, direction) => {
     let boundingClientRect = divRef.getBoundingClientRect();
-    this.divRef= divRef;
-    let left = boundingClientRect.left;
-    let right = boundingClientRect.right;
-    let top = boundingClientRect.top;
-    let bottom = boundingClientRect.bottom;
-    let w = window.innerWidth;
-    let height = document.getElementById('popup').getBoundingClientRect().height;
+    this.divRef = divRef;
 
-    if(direction === "right"){
-      console.log("right");
-      this.popupTop = top+'px';
-      this.popupBottom = '';
-      this.popupRight = 'initial';
-      this.popupLeft = w-right + 'px';
+    switch(direction){
+      case 'right': new PopupStrategyRight().setPosition(boundingClientRect, this); break;
+      case 'left': new PopupStrategyLeft().setPosition(boundingClientRect, this); break;
+      case 'top': new PopupStrategyTop().setPosition(boundingClientRect, this); break;
+      case 'bottom': new PopupStrategyBottom().setPosition(boundingClientRect, this); break;
     }
-    if(direction === "left"){
-      console.log("left");
-      this.popupBottom = '';
-      this.popupTop = top +'px';
-      this.popupRight = w-left + 'px';
-      this.popupLeft = 'initial';
-    }
-    if(direction === "top"){
-      console.log("top");
-      this.popupTop = top - height - 2*this.margin + 'px' + '';
-      this.popupBottom = '';
-      this.popupLeft = left + 'px';
-    }
-    if(direction === "bottom"){
-      this.popupTop = bottom +'px';
-      this.popupBottom = '';
-      this.popupLeft = left + 'px';
-      console.log("bot");
-    }
-  };
+  }
 }
