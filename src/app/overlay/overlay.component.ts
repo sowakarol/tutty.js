@@ -6,8 +6,6 @@ import { HintProviderService } from '../hint-provider/hint-provider.service';
 import { Hint } from '../util/classes';
 import { JsonParserService } from '../parser/json-parser.service';
 
-const TEST_DATA: number[] = [0, 1 , 2, 3, 4, 5, 6, 7, 8, 9];
-
 @Component({
   selector: 'app-overlay',
   templateUrl: './overlay.component.html',
@@ -17,9 +15,7 @@ const TEST_DATA: number[] = [0, 1 , 2, 3, 4, 5, 6, 7, 8, 9];
     HintProviderService, 
     PopupService]
 })
-export class OverlayComponent implements OnInit, AfterViewInit, AfterViewChecked {
-
-  @Input() collection: string;
+export class OverlayComponent implements AfterViewChecked {
 
   @ViewChild(
     'popupContainer', {
@@ -27,26 +23,34 @@ export class OverlayComponent implements OnInit, AfterViewInit, AfterViewChecked
     }
   ) popupContainer;
 
-  private hints: Hint[];
-
   constructor(
     public popupService: PopupService,
     private resolver: ComponentFactoryResolver,
     private cdRef: ChangeDetectorRef,
     private hintsService: HintProviderService) { }
 
-  ngOnInit() {
-    this.hints = this.hintsService.getHints(this.collection);
-    this.popupService.setHints(this.hints);
+  public show(collection: string) {
+    let hints: Hint[] = this.hintsService.getHints(collection);
+    !hints && console.warn('tutty: ' + collection + ' not found!');
+
+    this.preparePopupService(hints);
     this.currentHintIndex = 0;
-    this.numberOfHints = this.hints.length;
+    this.numberOfHints = hints.length;
+
+    this.popupService.popNext();
+    this.display();
   }
 
-  ngAfterViewInit() {
-    this.popupService.elem = this.getElements(this.hints);
-    this.popupService.popupComponent = this.createComponent();
-    this.popupService.popNext();
+  private preparePopupService(hints: Hint[]): void {
+    this.popupService.setHints(hints);
+    this.popupService.elem = this.getElements(hints);
+    this.popupService.popupComponent = this.createComponent();    
   }
+
+  private display() {
+    this.overlayDisplay = 'block';
+  }
+
 
   ngAfterViewChecked() {
     this.cdRef.detectChanges();
@@ -56,7 +60,7 @@ export class OverlayComponent implements OnInit, AfterViewInit, AfterViewChecked
   currentHintIndex: number;
   numberOfHints: number;
 
-  overlayDisplay= 'block';
+  overlayDisplay= 'none';
   exitModalDisplay= 'none';
   nextButtonText= 'Next';
 
@@ -97,7 +101,7 @@ export class OverlayComponent implements OnInit, AfterViewInit, AfterViewChecked
 
   close = () =>  this.overlayDisplay = 'none';
 
-  getElements(hints: Hint[]): HTMLElement[] {
+  private getElements(hints: Hint[]): HTMLElement[] {
     return hints.map((hint) => {
       return document.getElementById(hint.getId() as string);
     })

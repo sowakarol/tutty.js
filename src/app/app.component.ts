@@ -13,7 +13,10 @@ import { OverlayComponent } from './overlay/overlay.component';
   styleUrls: ['./app.component.css'],
   entryComponents: [OverlayComponent]
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
+
+  @ViewChild(OverlayComponent) overlay: OverlayComponent;
+
   constructor(public messagesService: MessagesService,
               public threadsService: ThreadsService,
               public usersService: UsersService,
@@ -21,5 +24,11 @@ export class AppComponent {
               ) {
     ChatExampleData.init(messagesService, threadsService, usersService);
   }
+
+  ngAfterViewInit() {
+    this.overlay.show('first');    
+  }
+
+
 
 }
