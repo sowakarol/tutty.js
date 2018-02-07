@@ -1,21 +1,32 @@
-import { Component, OnInit, AfterViewChecked, AfterViewInit, ViewChild, ViewContainerRef, ComponentFactory,
-  ComponentFactoryResolver, ChangeDetectorRef, Input} from '@angular/core';
-import { PopupService } from '../popup/popup.service';
-import { PopupComponent } from '../popup/popup.component';
-import { HintProviderService } from '../hint-provider/hint-provider.service';
-import { Hint } from '../util/classes';
-import { JsonParserService } from '../parser/json-parser.service';
+import {
+  AfterViewChecked,
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  ComponentFactory,
+  ComponentFactoryResolver,
+  Input,
+  ViewChild,
+  ViewContainerRef
+} from '@angular/core';
+import {PopupService} from '../popup/popup.service';
+import {PopupComponent} from '../popup/popup.component';
+import {HintProviderService} from '../hint-provider/hint-provider.service';
+import {Hint} from '../util/classes';
+import {JsonParserService} from '../parser/json-parser.service';
 
 @Component({
   selector: 'app-overlay',
   templateUrl: './overlay.component.html',
   styleUrls: ['./overlay.component.css'],
   entryComponents: [PopupComponent],
-  providers: [JsonParserService, 
-    HintProviderService, 
+  providers: [JsonParserService,
+    HintProviderService,
     PopupService]
 })
 export class OverlayComponent implements AfterViewChecked {
+
+  @Input() collection: string;
 
   @ViewChild(
     'popupContainer', {
@@ -37,7 +48,7 @@ export class OverlayComponent implements AfterViewChecked {
     this.currentHintIndex = 0;
     this.numberOfHints = hints.length;
 
-    this.popupService.popNext();
+    this.popupService.pop();
     this.display();
   }
 
@@ -51,12 +62,10 @@ export class OverlayComponent implements AfterViewChecked {
     this.overlayDisplay = 'block';
   }
 
-
   ngAfterViewChecked() {
     this.cdRef.detectChanges();
   }
 
- // TODO: change on hint type
   currentHintIndex: number;
   numberOfHints: number;
 
@@ -99,7 +108,7 @@ export class OverlayComponent implements AfterViewChecked {
 
   closeExitModal = () => this.exitModalDisplay = 'none';
 
-  close = () =>  this.overlayDisplay = 'none';
+  close = () => this.overlayDisplay = 'none';
 
   private getElements(hints: Hint[]): HTMLElement[] {
     return hints.map((hint) => {
