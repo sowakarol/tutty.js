@@ -9,7 +9,6 @@ export class PopupService {
   currentHint: number = 0;
   elem = [];
   currentZIndex;
-  oldPos;
   firstTime = true;
 
   popupComponent: PopupComponent;
@@ -18,32 +17,18 @@ export class PopupService {
   };
 
   popNext = () => {
-    if (this.currentHint != this.hints.length - 1) {
-      let divRef = this.elem[this.currentHint];
-
-      if (this.firstTime == true) {
-        this.currentZIndex = divRef.style.zIndex;
-        this.oldPos = divRef.style.position;
-        this.firstTime = false;
-        this.pop();
-      } else {
+        let divRef = this.elem[this.currentHint];
         divRef.style.zIndex = this.currentZIndex;
-        divRef.style.position = this.oldPos;
         this.currentHint++;
         this.pop();
-      }
-    }
-  };
+  }
 
   popPrev = () => {
-    if (this.currentHint != 0) {
       let divRef = this.elem[this.currentHint];
       divRef.style.zIndex = this.currentZIndex;
-      divRef.style.position = this.oldPos;
       this.currentHint--;
       this.pop();
-    }
-  };
+  }
 
   pop = () => {
     let msg: string = this.hints[this.currentHint].message.toString();

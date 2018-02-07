@@ -6,8 +6,6 @@ import { HintProviderService } from '../hint-provider/hint-provider.service';
 import { Hint } from '../util/classes';
 import { JsonParserService } from '../parser/json-parser.service';
 
-const TEST_DATA: number[] = [0, 1 , 2, 3, 4, 5, 6, 7, 8, 9];
-
 @Component({
   selector: 'app-overlay',
   templateUrl: './overlay.component.html',
@@ -45,7 +43,7 @@ export class OverlayComponent implements OnInit, AfterViewInit, AfterViewChecked
   ngAfterViewInit() {
     this.popupService.elem = this.getElements(this.hints);
     this.popupService.popupComponent = this.createComponent();
-    this.popupService.popNext();
+    this.popupService.pop();
   }
 
   ngAfterViewChecked() {
