@@ -5,10 +5,10 @@ import {Component, HostListener, Input, OnInit} from '@angular/core';
   templateUrl: './popup.component.html',
   styleUrls: ['./popup.component.css']
 })
-export class PopupComponent implements OnInit {
+export class PopupComponent {
 
-  @Input() public text: string;
-  @Input() public idToPopup: string;
+  text: String;
+  idToPopup: String;
   popupDisplay = 'none';
   popupLeft = '0px';
   popupTop = '0px';
@@ -23,13 +23,7 @@ export class PopupComponent implements OnInit {
     this.set(this.divRef,this.direction);
   }
 
-  constructor() {
-  };
-
-  ngOnInit() {
-  }
-
-  popUp(text: string, id: string) {
+  popUp(text: String, id: String) {
     this.text = text;
     this.idToPopup = id;
     this.popupDisplay = 'block';

@@ -15,7 +15,7 @@ import { JsonParserService } from '../parser/json-parser.service';
     HintProviderService, 
     PopupService]
 })
-export class OverlayComponent implements OnInit, AfterViewInit, AfterViewChecked {
+export class OverlayComponent implements AfterViewInit, AfterViewChecked {
 
   @Input() collection: string;
 
@@ -25,23 +25,19 @@ export class OverlayComponent implements OnInit, AfterViewInit, AfterViewChecked
     }
   ) popupContainer;
 
-  private hints: Hint[];
 
   constructor(
-    public popupService: PopupService,
+    private popupService: PopupService,
     private resolver: ComponentFactoryResolver,
     private cdRef: ChangeDetectorRef,
     private hintsService: HintProviderService) { }
 
-  ngOnInit() {
-    this.hints = this.hintsService.getHints(this.collection);
-    this.popupService.setHints(this.hints);
-    this.currentHintIndex = 0;
-    this.numberOfHints = this.hints.length;
-  }
-
   ngAfterViewInit() {
-    this.popupService.elem = this.getElements(this.hints);
+    let hints = this.hintsService.getHints(this.collection);
+    this.popupService.setHints(hints);
+    this.currentHintIndex = 0;
+    this.numberOfHints = hints.length;
+    this.popupService.elem = this.getElements(hints);
     this.popupService.popupComponent = this.createComponent();
     this.popupService.pop();
   }
@@ -50,7 +46,6 @@ export class OverlayComponent implements OnInit, AfterViewInit, AfterViewChecked
     this.cdRef.detectChanges();
   }
 
- // TODO: change on hint type
   currentHintIndex: number;
   numberOfHints: number;
 
