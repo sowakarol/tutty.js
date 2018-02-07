@@ -6,24 +6,24 @@ import {PopupComponent} from "./popup.component";
 export class PopupService {
 
   hints: Array<Hint>;
-  currentHint =  0;
+  currentHint = 0;
   elem = [];
   divRefZIndex;
 
   popupComponent: PopupComponent;
 
   popNext = () => {
-      let divRef = this.elem[this.currentHint];
-      divRef.style.zIndex = this.divRefZIndex;
-      this.currentHint++;
-      this.pop();
+    let divRef = this.elem[this.currentHint];
+    divRef.style.zIndex = this.divRefZIndex;
+    this.currentHint++;
+    this.pop();
   }
 
   popPrev = () => {
-      let divRef = this.elem[this.currentHint];
-      divRef.style.zIndex = this.divRefZIndex;
-      this.currentHint--;
-      this.pop();
+    let divRef = this.elem[this.currentHint];
+    divRef.style.zIndex = this.divRefZIndex;
+    this.currentHint--;
+    this.pop();
   }
 
   pop = () => {

@@ -1,7 +1,6 @@
-import {Component, HostListener, Input, OnInit} from '@angular/core';
-import PopupStrategyInterface from './popup-strategy-interface';
-import {PopupStrategyTop, PopupStrategyRight, PopupStrategyLeft, PopupStrategyBottom} from './popup-strategy-impl';
- 
+import {Component, HostListener} from '@angular/core';
+import {PopupStrategyBottom, PopupStrategyLeft, PopupStrategyRight, PopupStrategyTop} from './popup-strategy-impl';
+
 @Component({
   selector: 'app-popup',
   templateUrl: './popup.component.html',
@@ -15,8 +14,6 @@ export class PopupComponent {
   divRef;
   direction;
 
-  strategy: PopupStrategyInterface;
-
   @HostListener('window:resize')
   onResize() {
     this.set(this.divRef,this.direction);
@@ -26,10 +23,6 @@ export class PopupComponent {
     this.text = text;
     this.idToPopup = id;
     this.popupDisplay = 'block';
-  }
-
-  close() {
-    this.popupDisplay = 'none';
   }
 
   set = (divRef, direction) => {

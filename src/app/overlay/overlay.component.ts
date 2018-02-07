@@ -1,18 +1,27 @@
-import { Component, OnInit, AfterViewChecked, AfterViewInit, ViewChild, ViewContainerRef, ComponentFactory,
-  ComponentFactoryResolver, ChangeDetectorRef, Input} from '@angular/core';
-import { PopupService } from '../popup/popup.service';
-import { PopupComponent } from '../popup/popup.component';
-import { HintProviderService } from '../hint-provider/hint-provider.service';
-import { Hint } from '../util/classes';
-import { JsonParserService } from '../parser/json-parser.service';
+import {
+  AfterViewChecked,
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  ComponentFactory,
+  ComponentFactoryResolver,
+  Input,
+  ViewChild,
+  ViewContainerRef
+} from '@angular/core';
+import {PopupService} from '../popup/popup.service';
+import {PopupComponent} from '../popup/popup.component';
+import {HintProviderService} from '../hint-provider/hint-provider.service';
+import {Hint} from '../util/classes';
+import {JsonParserService} from '../parser/json-parser.service';
 
 @Component({
   selector: 'app-overlay',
   templateUrl: './overlay.component.html',
   styleUrls: ['./overlay.component.css'],
   entryComponents: [PopupComponent],
-  providers: [JsonParserService, 
-    HintProviderService, 
+  providers: [JsonParserService,
+    HintProviderService,
     PopupService]
 })
 export class OverlayComponent implements AfterViewInit, AfterViewChecked {
@@ -26,11 +35,11 @@ export class OverlayComponent implements AfterViewInit, AfterViewChecked {
   ) popupContainer;
 
 
-  constructor(
-    private popupService: PopupService,
-    private resolver: ComponentFactoryResolver,
-    private cdRef: ChangeDetectorRef,
-    private hintsService: HintProviderService) { }
+  constructor(private popupService: PopupService,
+              private resolver: ComponentFactoryResolver,
+              private cdRef: ChangeDetectorRef,
+              private hintsService: HintProviderService) {
+  }
 
   ngAfterViewInit() {
     let hints = this.hintsService.getHints(this.collection);
@@ -49,9 +58,9 @@ export class OverlayComponent implements AfterViewInit, AfterViewChecked {
   currentHintIndex: number;
   numberOfHints: number;
 
-  overlayDisplay= 'block';
-  exitModalDisplay= 'none';
-  nextButtonText= 'Next';
+  overlayDisplay = 'block';
+  exitModalDisplay = 'none';
+  nextButtonText = 'Next';
 
   showNextHint = () => {
     if (this.currentHintIndex === this.numberOfHints - 1) {
@@ -88,7 +97,7 @@ export class OverlayComponent implements AfterViewInit, AfterViewChecked {
 
   closeExitModal = () => this.exitModalDisplay = 'none';
 
-  close = () =>  this.overlayDisplay = 'none';
+  close = () => this.overlayDisplay = 'none';
 
   getElements(hints: Hint[]): HTMLElement[] {
     return hints.map((hint) => {
