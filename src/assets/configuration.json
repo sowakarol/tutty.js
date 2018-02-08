@@ -1,0 +1,64 @@
+{
+    "data": [
+      {
+        "name": "first",
+        "hints":[
+          {
+            "id": "messages",
+            "direction" : "left",
+            "message" : "hint for messages"
+          },
+          {
+            "id": "navbar",
+            "direction" : "bottom",
+            "message" : "hint for navbar"
+          },
+          {
+            "id": "avatar",
+            "direction" : "top",
+            "message" : "hint for avatar"       
+          },
+          {
+            "id": "dd",
+            "direction" : "top",
+            "message" : "hint for dd"       
+          }
+        ]
+      },
+      {
+        "name":"second",
+        "hints": [
+          {
+            "id": "id5",
+            "direction" : "up",
+            "message" : "asd"
+          },
+          {
+            "id": "id4",
+            "direction" : "right",
+            "message" : "bcd"
+          },
+          {
+            "id": "id2",
+            "direction" : "right",
+            "message" : "qwe"       
+          }
+        ]
+      },
+      {
+        "name":"third",
+        "hints":[
+          {
+            "id": "id6",
+            "direction" : "up",
+            "message" : "asd"
+          },
+          {
+            "id": "id1",
+            "direction" : "right",
+            "message" : "bcd"
+          }
+        ]   
+      }
+  ]
+}
