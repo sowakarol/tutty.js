@@ -1,0 +1,19 @@
+#popup {
+  width:200px;
+  margin: 25px;
+  height: 60px;
+  text-align: center;
+  vertical-align: top;
+  position: absolute;
+  z-index: 2137;
+  display: block;
+  color: #666;
+  background-color: #eee;
+  font-size: 15px;
+  padding: 10px 30px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border: 1px solid rgba(0,0,0,0.3);
+  border-bottom-width: 3px;
+}
