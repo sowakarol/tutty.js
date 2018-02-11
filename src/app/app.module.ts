@@ -20,7 +20,7 @@ import { FromNowPipe } from './pipes/from-now.pipe';
 import {PopupComponent} from "./popup/popup.component";
 import { OverlayComponent } from './overlay/overlay.component';
 import { CookieTestComponent } from './cookie-test/cookie-test.component';
-import { CookiesHandlerService } from './cookies-handler/cookies-handler.service';
+import { CookiesAdapter } from './cookies-handler/cookies-handler.service';
 import { PagingComponent } from './paging/paging.component';
 import { HintProviderService } from './hint-provider/hint-provider.service';
 import { JsonParserService } from './parser/json-parser.service';
@@ -49,7 +49,7 @@ import { JsonParserService } from './parser/json-parser.service';
   providers: [
     MessagesService, ThreadsService, UsersService,
     Config,
-    CookiesHandlerService,
+    CookiesAdapter,
     HintProviderService,
     JsonParserService,
     { provide: APP_INITIALIZER, useFactory: useFactory, deps: [Config], multi: true }
