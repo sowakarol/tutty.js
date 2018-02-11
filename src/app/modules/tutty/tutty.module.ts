@@ -9,6 +9,7 @@ import {PopupComponent} from "./popup/popup.component";
 import { CookieTestComponent } from './cookie-test/cookie-test.component';
 import { CookiesHandlerService } from './cookies-handler/cookies-handler.service';
 
+// @dynamic
 @NgModule({
   imports: [
     CommonModule,
@@ -35,5 +36,12 @@ export class TuttyModule { }
 
 
 export function useFactory(config: Config) {
-  return  () => config.load();
+  return  () => {
+    try { 
+      return config.load(); 
+    } 
+    catch(ex) {
+      return null;
+    }; 
+  }
 }
