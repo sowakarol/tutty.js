@@ -9,26 +9,34 @@ export class HintProviderService {
   constructor(private parser: JsonParserService,
               private cookiesHandler: CookiesHandlerService) { }
 
-  public getHints(name: string) {
+  public getHints(name: string): Hint[] {
     let allHints: HintCollection[] = this.parser.parse(),
       currCollection: HintCollection = 
-        this.getCollection(allHints, name),
-      hintsToDisplay: Hint[] = 
-        this.getUnshown(currCollection.getHints());
+        this.getCollection(allHints, name);
 
-        return hintsToDisplay;
+      if(!currCollection) {
+        console.warn('tutty: ' + name + ' not found!');
+        return [];
+      }
+
+      // COOKIES RESET FOR TESTS:
+      this.cookiesHandler.resetAll();
+      return !this.wasShown(name) ? currCollection.getHints() : [];
+  }
+
+  public setShown(name: string): void {
+    this.cookiesHandler.setShown(name);
   }
   
-  getCollection(hintCol: HintCollection[], name: String): HintCollection {
+  private getCollection(hintCol: HintCollection[], name: String): HintCollection {
     return hintCol.find((collection) => {
       return collection.getName() == name;
     });
   }
 
-  getUnshown(hints: Hint[]): Hint[] {
-    return hints.filter((hint) => {
-        return !this.cookiesHandler.wasShown(hint.getId() as string);
-    });
+  private wasShown(collectionName: string): boolean {
+    return this.cookiesHandler.wasShown(collectionName);
   }
+
 
 }
