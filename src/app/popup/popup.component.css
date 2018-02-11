@@ -2,7 +2,7 @@
 
 #popup {
   width:200px;
-  margin: 35px 55px 25px 2px;
+  margin: 12px 12px 12px 12px;
   height: 60px;
   position: absolute;
   z-index: 2200;
@@ -45,6 +45,7 @@
   bottom: -8px;
   margin-left: 90px;
   position: absolute; 
+
 }
 
 .arrow-right {
