@@ -1,4 +1,7 @@
-import {Component, ComponentFactory, ComponentFactoryResolver, Input, ViewChild, ViewContainerRef} from '@angular/core';
+import {
+  ChangeDetectorRef, Component, ComponentFactory, ComponentFactoryResolver, Input, ViewChild,
+  ViewContainerRef
+} from '@angular/core';
 import {PopupService} from '../popup/popup.service';
 import {PopupComponent} from '../popup/popup.component';
 import {HintProviderService} from '../hint-provider/hint-provider.service';
@@ -26,7 +29,8 @@ export class OverlayComponent {
 
   constructor(public popupService: PopupService,
               private resolver: ComponentFactoryResolver,
-              private hintsService: HintProviderService) {
+              private hintsService: HintProviderService,
+              private cdRef: ChangeDetectorRef) {
   }
 
   public show(collection: string) {
@@ -39,6 +43,7 @@ export class OverlayComponent {
 
     this.popupService.pop();
     this.display();
+    this.cdRef.detectChanges()
   }
 
   private preparePopupService(hints: Hint[]): void {
