@@ -4,10 +4,15 @@ import { Observable } from 'rxjs/Observable';
 
 
 
+declare var Promise: any;
+
+
 @Injectable()
 export class Config {
     private _config: Object = null;
 
+
+    
     constructor(private http: Http) {}
 
     load() {
