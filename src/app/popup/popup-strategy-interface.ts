@@ -6,6 +6,7 @@ export default abstract class PopupStrategyInterface {
   protected bottom;
   protected innerWindowWidth;
   protected height;
+  protected width : number = 200; //200px from css
 
   protected positionPopup(boundingClientRect) {
     this.left = boundingClientRect.left;
