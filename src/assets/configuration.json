@@ -4,49 +4,64 @@
         "name": "first",
         "hints":[
           {
-            "id": "messages",
-            "direction" : "left",
-            "message" : "hint for messages"
+            "id": "header",
+            "direction" : "right",
+            "message" : "witaj na paskudnej starej stronie internetowej!"
           },
           {
-            "id": "navbar",
+            "id": "arch",
             "direction" : "bottom",
-            "message" : "hint for navbar"
+            "message" : "jakies archiwum"
           },
           {
-            "id": "avatar",
+            "id": "print",
             "direction" : "top",
-            "message" : "hint for avatar"       
+            "message" : "drukuj"       
           },
           {
-            "id": "dd",
+            "id": "comment",
             "direction" : "top",
-            "message" : "hint for dd"       
+            "message" : "komentuj"       
+          },
+          {
+            "id": "footer",
+            "direction" : "top",
+            "message" : "ayyyyy lmao" 
           }
         ]
       },
       {
-        "name":"second",
+        "name":"ayy",
         "hints": [
           {
-            "id": "id5",
-            "direction" : "up",
-            "message" : "asd"
+            "id": "header",
+            "direction" : "right",
+            "message" : "ayyyyyyy lmao"
           },
           {
-            "id": "id4",
-            "direction" : "right",
-            "message" : "bcd"
+            "id": "arch",
+            "direction" : "bottom",
+            "message" : "ayyyyyyy lmao"
           },
           {
-            "id": "id2",
-            "direction" : "right",
-            "message" : "qwe"       
+            "id": "print",
+            "direction" : "top",
+            "message" : "ayyyyyyy lmao"       
+          },
+          {
+            "id": "comment",
+            "direction" : "top",
+            "message" : "ayyyyyyy lmao"       
+          },
+          {
+            "id": "footer",
+            "direction" : "top",
+            "message" : "ayyyyy lmao" 
           }
         ]
       },
       {
-        "name":"third",
+        "name":"wrong",
         "hints":[
           {
             "id": "id6",
