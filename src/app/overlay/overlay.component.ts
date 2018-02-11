@@ -7,18 +7,20 @@ import {PopupComponent} from '../popup/popup.component';
 import {HintProviderService} from '../hint-provider/hint-provider.service';
 import {Hint} from '../util/classes';
 import {JsonParserService} from '../parser/json-parser.service';
+import {PagingComponent} from '../paging/paging.component';
 
 @Component({
   selector: 'app-overlay',
   templateUrl: './overlay.component.html',
   styleUrls: ['./overlay.component.css'],
-  entryComponents: [PopupComponent],
+  entryComponents: [PopupComponent, PagingComponent],
   providers: [JsonParserService,
     HintProviderService,
     PopupService]
 })
 export class OverlayComponent {
 
+  private pagingComponent: PagingComponent = new PagingComponent();
   @Input() collection: string;
 
   @ViewChild(
@@ -27,11 +29,18 @@ export class OverlayComponent {
     }
   ) popupContainer;
 
-  constructor(public popupService: PopupService,
-              private resolver: ComponentFactoryResolver,
-              private hintsService: HintProviderService,
-              private cdRef: ChangeDetectorRef) {
-  }
+  constructor(
+    public popupService: PopupService,
+    private resolver: ComponentFactoryResolver,
+    private cdRef: ChangeDetectorRef,
+    private hintsService: HintProviderService
+   ) { }
+
+  currentHintIndex: number;
+  numberOfHints: number;
+
+  overlayDisplay= 'none';
+  exitModalDisplay= 'none';
 
   public show(collection: string) {
     let hints: Hint[] = this.hintsService.getHints(collection);
@@ -40,6 +49,7 @@ export class OverlayComponent {
     this.preparePopupService(hints);
     this.currentHintIndex = 0;
     this.numberOfHints = hints.length;
+
 
     this.popupService.pop();
     this.display();
@@ -52,42 +62,29 @@ export class OverlayComponent {
     this.popupService.popupComponent = this.createComponent();
   }
 
+
   private display() {
     this.overlayDisplay = 'block';
   }
 
-  currentHintIndex: number;
-  numberOfHints: number;
-
-  overlayDisplay = 'none';
-  exitModalDisplay = 'none';
-  nextButtonText = 'Next';
-
-  showNextHint = () => {
+  showNextHint(): void {
     if (this.currentHintIndex === this.numberOfHints - 1) {
       this.close();
       return;
     }
 
     this.currentHintIndex++;
-    if (this.currentHintIndex === this.numberOfHints - 1) {
-      this.nextButtonText = 'Close';
-    }
-
     this.popupService.popNext();
 
   }
 
-  showPrevHint = () => {
+  showPrevHint(): void {
     this.currentHintIndex--;
-    if (this.currentHintIndex === this.numberOfHints - 2) {
-      this.nextButtonText = 'Next';
-    }
-
     this.popupService.popPrev();
 
   }
 
+  // TODO: WTF
   createComponent() {
     this.popupContainer.clear();
     const factory: ComponentFactory<any> = this.resolver.resolveComponentFactory(PopupComponent);
