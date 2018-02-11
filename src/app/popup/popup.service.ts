@@ -9,25 +9,25 @@ export class PopupService {
   hints: Array<Hint>;
   currentHint = 0;
   elem = [];
-  divRefZIndex;
+  divRefZIndex: number;
 
   popupComponent: PopupComponent;
 
-  popNext = () => {
+  public popNext() {
     let divRef = this.elem[this.currentHint];
     divRef.style.zIndex = this.divRefZIndex;
     this.currentHint++;
     this.pop();
   }
 
-  popPrev = () => {
+  public popPrev() {
     let divRef = this.elem[this.currentHint];
     divRef.style.zIndex = this.divRefZIndex;
     this.currentHint--;
     this.pop();
   }
 
-  pop = () => {
+  public pop() {
     let hint = this.hints[this.currentHint];
     let divRef = this.elem[this.currentHint];
 
@@ -47,13 +47,13 @@ export class PopupService {
     this.popupComponent.popUp(hint.message, hint.id);
   };
 
-  enlightenReference = (divRef) => {
+  private enlightenReference(divRef) {
     divRef.style.zIndex = 9999999;
     divRef.style.position = 'relative';
     divRef.style.pointerEvents = 'none';
   }
 
-  setHints = (popups) => {
+  public setHints(popups) {
     this.hints = popups;
   };
 }
