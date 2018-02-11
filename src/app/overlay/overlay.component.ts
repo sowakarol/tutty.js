@@ -1,14 +1,4 @@
-import {
-  AfterViewChecked,
-  AfterViewInit,
-  ChangeDetectorRef,
-  Component,
-  ComponentFactory,
-  ComponentFactoryResolver,
-  Input,
-  ViewChild,
-  ViewContainerRef
-} from '@angular/core';
+import {Component, ComponentFactory, ComponentFactoryResolver, Input, ViewChild, ViewContainerRef} from '@angular/core';
 import {PopupService} from '../popup/popup.service';
 import {PopupComponent} from '../popup/popup.component';
 import {HintProviderService} from '../hint-provider/hint-provider.service';
@@ -24,7 +14,7 @@ import {JsonParserService} from '../parser/json-parser.service';
     HintProviderService,
     PopupService]
 })
-export class OverlayComponent implements AfterViewChecked {
+export class OverlayComponent {
 
   @Input() collection: string;
 
@@ -34,11 +24,10 @@ export class OverlayComponent implements AfterViewChecked {
     }
   ) popupContainer;
 
-  constructor(
-    public popupService: PopupService,
-    private resolver: ComponentFactoryResolver,
-    private cdRef: ChangeDetectorRef,
-    private hintsService: HintProviderService) { }
+  constructor(public popupService: PopupService,
+              private resolver: ComponentFactoryResolver,
+              private hintsService: HintProviderService) {
+  }
 
   public show(collection: string) {
     let hints: Hint[] = this.hintsService.getHints(collection);
@@ -55,23 +44,19 @@ export class OverlayComponent implements AfterViewChecked {
   private preparePopupService(hints: Hint[]): void {
     this.popupService.setHints(hints);
     this.popupService.elem = this.getElements(hints);
-    this.popupService.popupComponent = this.createComponent();    
+    this.popupService.popupComponent = this.createComponent();
   }
 
   private display() {
     this.overlayDisplay = 'block';
   }
 
-  ngAfterViewChecked() {
-    this.cdRef.detectChanges();
-  }
-
   currentHintIndex: number;
   numberOfHints: number;
 
-  overlayDisplay= 'none';
-  exitModalDisplay= 'none';
-  nextButtonText= 'Next';
+  overlayDisplay = 'none';
+  exitModalDisplay = 'none';
+  nextButtonText = 'Next';
 
   showNextHint = () => {
     if (this.currentHintIndex === this.numberOfHints - 1) {
