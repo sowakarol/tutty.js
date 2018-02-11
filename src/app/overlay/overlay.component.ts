@@ -6,7 +6,6 @@ import {PopupService} from '../popup/popup.service';
 import {PopupComponent} from '../popup/popup.component';
 import {HintProviderService} from '../hint-provider/hint-provider.service';
 import {Hint} from '../util/classes';
-import {JsonParserService} from '../parser/json-parser.service';
 import {PagingComponent} from '../paging/paging.component';
 
 @Component({
@@ -14,9 +13,7 @@ import {PagingComponent} from '../paging/paging.component';
   templateUrl: './overlay.component.html',
   styleUrls: ['./overlay.component.css'],
   entryComponents: [PopupComponent, PagingComponent],
-  providers: [JsonParserService,
-    HintProviderService,
-    PopupService]
+  providers: [PopupService]
 })
 export class OverlayComponent {
 
@@ -42,14 +39,11 @@ export class OverlayComponent {
   overlayDisplay= 'none';
   exitModalDisplay= 'none';
 
-  public show(collection: string) {
-    let hints: Hint[] = this.hintsService.getHints(collection);
-    !hints && console.warn('tutty: ' + collection + ' not found!');
+  public show(hints: Hint[]) {
 
     this.preparePopupService(hints);
     this.currentHintIndex = 0;
     this.numberOfHints = hints.length;
-
 
     this.popupService.pop();
     this.display();

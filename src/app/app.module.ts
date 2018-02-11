@@ -22,6 +22,8 @@ import { OverlayComponent } from './overlay/overlay.component';
 import { CookieTestComponent } from './cookie-test/cookie-test.component';
 import { CookiesHandlerService } from './cookies-handler/cookies-handler.service';
 import { PagingComponent } from './paging/paging.component';
+import { HintProviderService } from './hint-provider/hint-provider.service';
+import { JsonParserService } from './parser/json-parser.service';
 
 @NgModule({
   declarations: [
@@ -48,9 +50,10 @@ import { PagingComponent } from './paging/paging.component';
     MessagesService, ThreadsService, UsersService,
     Config,
     CookiesHandlerService,
+    HintProviderService,
+    JsonParserService,
     { provide: APP_INITIALIZER, useFactory: useFactory, deps: [Config], multi: true }
   ],
-
   bootstrap: [AppComponent],
   entryComponents: [OverlayComponent]
 })
