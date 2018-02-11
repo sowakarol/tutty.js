@@ -18,7 +18,7 @@ export class CookiesHandlerService {
     }
   
     public wasShown(id: string): boolean {
-      return this.getShown().includes(id);
+      return (this.getShown().indexOf(id) != -1)
     }
   
     public setShown(id: string): void {
