@@ -12,7 +12,7 @@
     "packagr": "ng-packagr -p ng-package.json"
 
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "^5.2.0",
     "@angular/common": "^5.2.0",
