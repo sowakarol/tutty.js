@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
 import {Hint} from "../util/classes";
 import {PopupComponent} from "./popup.component";
+import {PopupStrategyBottom, PopupStrategyLeft, PopupStrategyRight, PopupStrategyTop} from "./popup-strategy-impl";
 
 @Injectable()
 export class PopupService {
@@ -32,9 +33,17 @@ export class PopupService {
 
     this.divRefZIndex = divRef.style.zIndex;
     this.popupComponent.divRef = divRef;
-    this.popupComponent.set(divRef, hint.direction);
-    this.enlightenReference(divRef);
 
+    let strategy;
+    switch(hint.direction){
+      case 'right': strategy = new PopupStrategyRight(); break;
+      case 'left': strategy = new PopupStrategyLeft(); break;
+      case 'top': strategy = new PopupStrategyTop(); break;
+      case 'bottom': strategy = new PopupStrategyBottom(); break;
+    }
+    this.popupComponent.strategy = strategy;
+    this.popupComponent.set(divRef);
+    this.enlightenReference(divRef);
     this.popupComponent.popUp(hint.message, hint.id);
   };
 
