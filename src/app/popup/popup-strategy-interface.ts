@@ -16,5 +16,9 @@ export default abstract class PopupStrategyInterface {
     this.height = document.getElementById('popup').getBoundingClientRect().height;
   }
 
+  protected positionArrow(arrow: HTMLElement, type :string){
+    arrow.className = "arrow " + type;
+  }
+
   public abstract setPosition(boundingClientRect, popupComponent);
 }
