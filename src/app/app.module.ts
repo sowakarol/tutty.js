@@ -50,7 +50,7 @@ import { CookiesHandlerService } from './cookies-handler/cookies-handler.service
   ],
 
   bootstrap: [AppComponent],
-
+  entryComponents: [OverlayComponent]
 })
 export class AppModule { }
 
