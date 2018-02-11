@@ -14,7 +14,7 @@ import { TuttyService } from './tutty/tutty.service';
   styleUrls: ['./app.component.css'],
   providers: [TuttyService]
 })
-export class AppComponent implements AfterViewChecked {
+export class AppComponent implements AfterViewInit {
 
 
   @ViewChild(OverlayComponent) overlay: OverlayComponent;
@@ -27,7 +27,7 @@ export class AppComponent implements AfterViewChecked {
     ChatExampleData.init(messagesService, threadsService, usersService);
   }
 
-  ngAfterViewChecked() {
+  ngAfterViewInit() {
     this.tuttyService.displayHints("first");
   }
 }
