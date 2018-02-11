@@ -21,6 +21,7 @@ import {PopupComponent} from "./popup/popup.component";
 import { OverlayComponent } from './overlay/overlay.component';
 import { CookieTestComponent } from './cookie-test/cookie-test.component';
 import { CookiesHandlerService } from './cookies-handler/cookies-handler.service';
+import { PagingComponent } from './paging/paging.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { CookiesHandlerService } from './cookies-handler/cookies-handler.service
     FromNowPipe,
     PopupComponent,
     OverlayComponent,
-    CookieTestComponent
+    CookieTestComponent,
+    PagingComponent
   ],
   imports: [
     BrowserModule,
