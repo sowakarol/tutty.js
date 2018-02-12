@@ -45,11 +45,8 @@ export class OverlayComponent {
     this.currentHintIndex = 0;
     this.numberOfHints = hints.length;
 
-<<<<<<< Updated upstream
-=======
     this.pagingComponent = new PagingComponent();
 
->>>>>>> Stashed changes
     this.popupService.pop();
     this.display();
     this.cdRef.detectChanges();
@@ -99,7 +96,7 @@ export class OverlayComponent {
   private getElements(hints: Hint[]): HTMLElement[] {
     return hints.map((hint) => {
       return document.getElementById(hint.getId() as string);
-    })
+    });
   }
 
 }
