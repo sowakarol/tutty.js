@@ -3,6 +3,7 @@
 #paging {
     bottom: 1em;
     position: fixed;
+    z-index: 5000;
     display: block;
     width: 100%;  
     font-family: Lato;
@@ -13,17 +14,21 @@
 }
 
 .hint-progress-indicator {
-    border-radius: 50%;
-    border: 2px solid #666;
+    background-color: rgb(57, 66, 60);
+    border-radius: 5px;
     height: 22px;
     width: 22px;
     text-align: center;
     display: inline-block;
     font-family: 'Lato';
+    position: relative;
+    z-index: 5000;
+    color: white;
 }
 
 .hint-progress-indicator-current {
-    background-color: gainsboro;
+    color: #555555;
+    background-color: white;
 }
 
 .paging-button {
@@ -38,6 +43,8 @@
     transition-duration: 0.4s;
     cursor: pointer;
     font-family: 'Lato';
+    position: relative;
+    z-index: 5000;
 }
 
 .paging-button:hover {
@@ -47,7 +54,7 @@
 }
 
 .paging-button:disabled {
-  border: 1px solid #999999;
+  border: 2px solid #999999;
   background-color: #cccccc;
   color: #666666;
   cursor: default;
