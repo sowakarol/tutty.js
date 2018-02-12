@@ -6,9 +6,11 @@ import {HttpModule} from '@angular/http'
 import {OverlayComponent} from './overlay/overlay.component';
 import { CookieModule } from 'ngx-cookie';
 import {PopupComponent} from "./popup/popup.component";
-import { CookieTestComponent } from './cookie-test/cookie-test.component';
-import { CookiesHandlerService } from './cookies-handler/cookies-handler.service';
+import { CookiesAdapter } from './cookies-handler/cookies-adapter.service';
 import {PagingComponent} from './paging/paging.component';
+import { TuttyService } from './tutty/tutty.service';
+import { HintProviderService } from './hint-provider/hint-provider.service';
+import { JsonParserService } from './parser/json-parser.service';
 
 
 // @dynamic
@@ -21,20 +23,21 @@ import {PagingComponent} from './paging/paging.component';
   ],
   providers: [
     Config,
-    CookiesHandlerService,
+    CookiesAdapter,
+    TuttyService,
+    HintProviderService,
+    JsonParserService,
     { provide: APP_INITIALIZER, useFactory: useFactory, deps: [Config], multi: true }
   ],
   declarations: [
     OverlayComponent,
-    CookieTestComponent,
     PopupComponent,
     PagingComponent
 
   ],
-  exports: [
+  entryComponents: [
     OverlayComponent
   ]
-
 
 })
 export class TuttyModule { }
