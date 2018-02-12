@@ -20,8 +20,8 @@ export class PopupComponent {
     this.set(this.divRef);
   }
 
-  @HostListener('window:scroll', ['$event'])
-  public onWindowScroll(event: Event): void {
+  @HostListener('window:scroll')
+  public onWindowScroll(): void {
     this.set(this.divRef);
   }
 
@@ -31,7 +31,7 @@ export class PopupComponent {
     this.popupDisplay = 'block';
   }
 
-  set = (divRef) => {
+  set(divRef) {
     let boundingClientRect = divRef.getBoundingClientRect();
     this.divRef = divRef;
     this.strategy.setPosition(boundingClientRect, this);
