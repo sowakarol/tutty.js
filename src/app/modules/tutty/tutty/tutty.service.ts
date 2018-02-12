@@ -18,7 +18,6 @@ export class TuttyService {
     private hintsProvider: HintProviderService) { }
 
   public displayHints(collectionName: string): void {
-    console.log('tutty: displaying ' + collectionName);
     const hints: Hint[] = this.hintsProvider.getHints(collectionName);
     if (!hints || hints.length === 0) {
       return;
@@ -26,11 +25,9 @@ export class TuttyService {
     
     let componentRef = this.createComponent();
 
-    debugger;
     this.appRef.attachView(componentRef.hostView);
     this.attachComponentToDOM(componentRef);
 
-    debugger;
     this.hintsProvider.setShown(collectionName);
     componentRef.instance.show(hints);
   }
@@ -45,7 +42,6 @@ export class TuttyService {
     const domElem = (componentRef.hostView as EmbeddedViewRef<OverlayComponent>)
       .rootNodes[0] as HTMLElement;
 
-    debugger;
     document.body.appendChild(domElem);
   }
 
