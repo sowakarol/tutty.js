@@ -10,12 +10,14 @@ export class PopupService {
   currentHint = 0;
   elem = [];
   divRefZIndex: number;
+  divRefBoxShadow: string;
 
   popupComponent: PopupComponent;
 
   public popNext() {
     let divRef = this.elem[this.currentHint];
     divRef.style.zIndex = this.divRefZIndex;
+    divRef.style.boxShadow = this.divRefBoxShadow;
     this.currentHint++;
     this.pop();
   }
@@ -23,6 +25,7 @@ export class PopupService {
   public popPrev() {
     let divRef = this.elem[this.currentHint];
     divRef.style.zIndex = this.divRefZIndex;
+    divRef.style.boxShadow = this.divRefBoxShadow;
     this.currentHint--;
     this.pop();
   }
@@ -32,6 +35,7 @@ export class PopupService {
     let divRef = this.elem[this.currentHint];
 
     this.divRefZIndex = divRef.style.zIndex;
+    this.divRefBoxShadow = divRef.style.boxShadow;
     this.popupComponent.divRef = divRef;
 
     let strategy;
@@ -49,6 +53,7 @@ export class PopupService {
   };
 
   private enlightenReference(divRef) {
+    divRef.style.boxShadow = '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)';
     divRef.style.zIndex = 9999999;
     divRef.style.position = 'relative';
     divRef.style.pointerEvents = 'none';

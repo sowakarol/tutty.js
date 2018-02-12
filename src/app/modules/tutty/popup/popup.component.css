@@ -21,10 +21,11 @@
   font-family: Lato;
   padding: 20px 10px;
   word-wrap: break-word;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .arrow {
-  width: 0; 
+  width: 0;
   display: block;
   position: relative;
 }
@@ -46,7 +47,7 @@
   float: bottom;
   bottom: -8px;
   margin-left: 90px;
-  position: absolute; 
+  position: absolute;
 
 }
 
@@ -59,10 +60,10 @@
   left: 18px;
 }
 
-.arrow-left { 
+.arrow-left {
   border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent; 
-  border-right: 8px solid #eee; 
+  border-bottom: 8px solid transparent;
+  border-right: 8px solid #eee;
   float: left;
   margin-top: 22px;
   right: 18px;
