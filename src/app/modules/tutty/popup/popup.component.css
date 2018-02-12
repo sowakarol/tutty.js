@@ -1,8 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Lato);
 
 #popup {
-  min-width:200px;
-  max-width: 500px;
+  width:250px;
   margin: 12px 12px 12px 12px;
   min-height: 20px;
   height: auto;
@@ -37,7 +36,7 @@
   float: top;
   position: absolute;
   top: -8px;
-  margin-left: 90px;
+  margin-left: 110px;
 }
 
 .arrow-down {
@@ -46,7 +45,7 @@
   border-top: 8px solid #eee;
   float: bottom;
   bottom: -8px;
-  margin-left: 90px;
+  margin-left: 110px;
   position: absolute;
 
 }
