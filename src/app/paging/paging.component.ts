@@ -1,45 +1,43 @@
-import { Component, Input, EventEmitter, Output, OnChanges } from '@angular/core';
-import PagingState from './paging-state-interface';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
+import {PagingState} from './paging-state-interface';
+import {PagingStateFirstElement} from './paging-state-implementations';
 
 @Component({
   selector: 'app-paging',
   templateUrl: './paging.component.html',
   styleUrls: ['./paging.component.css']
 })
-export class PagingComponent implements OnChanges {
+export class PagingComponent {
 
-  @Input() private currentHintIndex;
-  @Input() private numberOfHints;
+  @Input() currentHintIndex;
+  @Input() numberOfHints;
 
   @Output() nextHintEvent = new EventEmitter<any>();
   @Output() prevHintEvent = new EventEmitter<any>();
 
-  private nextButtonText = 'Next';
-  private disablePrevButton = true;
+  public nextButtonText: String = 'Next';
+  public disablePrevButton: Boolean = true;
+  private pagingState: PagingState = new PagingStateFirstElement();
 
-  private pagingState: PagingState;
+  constructor() {}
 
-  constructor() { }
-
-  ngOnChanges() {
-
-    this.numberOfHints > 1 ? this.nextButtonText = 'Next' : this.nextButtonText = 'Close';
-
-    this.currentHintIndex === 0 ? this.disablePrevButton = true : this.disablePrevButton = false;
-    if (this.currentHintIndex === this.numberOfHints - 1) {
-      this.nextButtonText = 'Close';
-    }
-    if (this.currentHintIndex === this.numberOfHints - 2) {
-      this.nextButtonText = 'Next';
-    }
-  }
+  // TODO: figure out 
+  // ngOnInit()  {
+  //   this.numberOfHints === 1 ? this.nextButtonText = 'Close' : this.nextButtonText = 'Next';
+  // }
 
   private nextHint(): void {
     this.nextHintEvent.emit();
+    this.pagingState.pressNextButton(this);
   }
 
   private prevHint(): void {
     this.prevHintEvent.emit();
+    this.pagingState.pressPrevButton(this);
+  }
+
+  public setState(newPagingState): void {
+    this.pagingState = newPagingState;
   }
 
 }

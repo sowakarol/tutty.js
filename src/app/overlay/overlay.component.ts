@@ -17,7 +17,7 @@ import {PagingComponent} from '../paging/paging.component';
 })
 export class OverlayComponent {
 
-  private pagingComponent: PagingComponent = new PagingComponent();
+  private pagingComponent: PagingComponent;
   @Input() collection: string;
 
   @ViewChild(
@@ -29,8 +29,8 @@ export class OverlayComponent {
   constructor(
     public popupService: PopupService,
     private resolver: ComponentFactoryResolver,
-    private cdRef: ChangeDetectorRef,
-    private hintsService: HintProviderService
+    private hintsService: HintProviderService,
+    private cdRef: ChangeDetectorRef
    ) { }
 
   currentHintIndex: number;
@@ -45,9 +45,14 @@ export class OverlayComponent {
     this.currentHintIndex = 0;
     this.numberOfHints = hints.length;
 
+<<<<<<< Updated upstream
+=======
+    this.pagingComponent = new PagingComponent();
+
+>>>>>>> Stashed changes
     this.popupService.pop();
     this.display();
-    this.cdRef.detectChanges()
+    this.cdRef.detectChanges();
   }
 
   private preparePopupService(hints: Hint[]): void {
