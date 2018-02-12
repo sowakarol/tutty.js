@@ -56,7 +56,7 @@ export class PopupService {
   }
 }
 
-class DivVO {
+export class DivVO {
   private boxShadow: CSSStyleDeclaration;
   private zIndex: CSSStyleDeclaration;
   private position: CSSStyleDeclaration;
