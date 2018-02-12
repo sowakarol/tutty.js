@@ -34,6 +34,7 @@ export class PopupService {
   public pop() {
     let hint = this.hints[this.currentHint];
     let divRef = this.elem[this.currentHint];
+    divRef.scrollIntoView({behavior: "smooth", block: "center"});
     this.divVo.setDivOldValues(divRef);
     this.popupComponent.divRef = divRef;
 
@@ -48,7 +49,6 @@ export class PopupService {
     this.popupComponent.set(divRef);
     this.divVo.enlightenReference(divRef);
     this.popupComponent.popUp(hint.message, hint.id);
-    divRef.scrollIntoView({behavior: "smooth", block: "center"});
   };
 
   public setHints(popups) {
