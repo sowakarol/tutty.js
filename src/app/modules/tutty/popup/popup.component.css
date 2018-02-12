@@ -1,9 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Lato);
 
 #popup {
-  width:200px;
+  min-width:200px;
+  max-width: 500px;
   margin: 12px 12px 12px 12px;
-  height: 60px;
+  min-height: 60px;
+  height: auto;
   position: absolute;
   z-index: 2200;
   color: #000000;
@@ -16,14 +18,14 @@
   border-bottom-width: 3px;
   text-align: center;
   vertical-align: middle;
-  line-height: 55px;
   font-family: Lato;
+  padding: 20px;
+  word-wrap: break-word;
 }
 
 .arrow {
   width: 0; 
   display: block;
-  padding: inherit;
   position: relative;
 }
 
@@ -54,7 +56,7 @@
   border-left: 8px solid #eee;
   float: right;
   margin-top: 22px;
-  left: 8px;
+  left: 28px;
 }
 
 .arrow-left { 
@@ -63,5 +65,5 @@
   border-right: 8px solid #eee; 
   float: left;
   margin-top: 22px;
-  right: 8px;
+  right: 28px;
 }
