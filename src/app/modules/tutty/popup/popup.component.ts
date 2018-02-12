@@ -20,6 +20,11 @@ export class PopupComponent {
     this.set(this.divRef);
   }
 
+  @HostListener('window:scroll', ['$event'])
+  public onWindowScroll(event: Event): void {
+    this.set(this.divRef);
+  }
+
   popUp(text: String, id: String) {
     this.text = text;
     this.idToPopup = id;

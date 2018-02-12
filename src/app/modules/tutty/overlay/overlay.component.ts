@@ -50,12 +50,13 @@ export class OverlayComponent implements AfterViewChecked {
 
     this.popupService.pop();
     this.display();
+    this.cdRef.detectChanges();
   }
 
   private preparePopupService(hints: Hint[]): void {
     this.popupService.setHints(hints);
     this.popupService.elem = this.getElements(hints);
-    this.popupService.popupComponent = this.createComponent();    
+    this.popupService.popupComponent = this.createComponent();
   }
 
   private display() {
