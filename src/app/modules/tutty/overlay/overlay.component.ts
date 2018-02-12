@@ -70,9 +70,10 @@ export class OverlayComponent implements AfterViewChecked {
   currentHintIndex: number;
   numberOfHints: number;
 
-  overlayDisplay= 'none';
-  exitModalDisplay= 'none';
-  nextButtonText= 'Next';
+  overlayDisplay = 'none';
+  overlayOpacity = 100;
+  exitModalDisplay = 'none';
+  nextButtonText = 'Next';
 
   showNextHint = () => {
     if (this.currentHintIndex === this.numberOfHints - 1) {
@@ -105,11 +106,16 @@ export class OverlayComponent implements AfterViewChecked {
     return this.popupContainer.createComponent(factory).instance;
   }
 
-  showExitModal = () => this.exitModalDisplay = 'block';
+  showExitModal = () => {
+    this.exitModalDisplay = 'block';
+  }
 
-  closeExitModal = () => this.exitModalDisplay = 'none';
-
-  close = () => this.overlayDisplay = 'none';
+  close() {
+    this.overlayOpacity = 0;
+    setTimeout(() => {
+      this.overlayDisplay = 'none';
+    }, 1000);
+  }
 
   private getElements(hints: Hint[]): HTMLElement[] {
     return hints.map((hint) => {

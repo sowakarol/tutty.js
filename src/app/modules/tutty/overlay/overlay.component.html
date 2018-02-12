@@ -1,8 +1,8 @@
-<div class="container-fluid" id="overlay" [style.display]="overlayDisplay">
-    
+<div class="container-fluid" id="overlay" [style.display]="overlayDisplay" [style.opacity]="overlayOpacity">
+
     <span id="exit" (click)="showExitModal()" class="glyphicon glyphicon-remove"></span>
-    
-    <div id="paging" class="row"> 
+
+    <div id="paging" class="row">
         <div class="col-xs-5 text-right">
             <button [disabled]="currentHintIndex === 0" (click)="showPrevHint()" class="overlay-button">Previous</button>
         </div>
@@ -15,7 +15,7 @@
             <button (click)="showNextHint()" class="overlay-button">{{nextButtonText}}</button>
         </div>
     </div>
-    
+
     <div id="exitModal" [style.display]="exitModalDisplay">
 
         <div id="exit-modal-content">
@@ -28,11 +28,11 @@
                     <button (click)='close()' class="overlay-button">Yes</button>
                 </div>
                 <div class="col-xs-5 col-xs-offset-2 text-left">
-                    <button (click)='closeExitModal()' class="overlay-button">No</button>
+                    <button (click)='close()' class="overlay-button">No</button>
                 </div>
             </div>
         </div>
-          
+
     </div>
 
     <ng-template #popupContainer></ng-template>
