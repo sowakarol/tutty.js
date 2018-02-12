@@ -9,8 +9,6 @@ export class PopupService {
   hints: Array<Hint>;
   currentHint = 0;
   elem = [];
-  divRefZIndex: number;
-  divRefBoxShadow: string;
 
   popupComponent: PopupComponent;
   divVo: DivVO = new DivVO;
@@ -25,8 +23,6 @@ export class PopupService {
   public popPrev() {
     let divRef = this.elem[this.currentHint];
     this.divVo.reset(divRef);
-    divRef.style.zIndex = this.divRefZIndex;
-    divRef.style.boxShadow = this.divRefBoxShadow;
     this.currentHint--;
     this.pop();
   }
@@ -55,12 +51,12 @@ export class PopupService {
     this.hints = popups;
   };
 
-  resetDiv() {
+  public resetDiv() {
     this.divVo.reset(this.elem[this.currentHint])
   }
 }
 
-class DivVO {
+export class DivVO {
   private boxShadow: CSSStyleDeclaration;
   private zIndex: CSSStyleDeclaration;
   private position: CSSStyleDeclaration;
