@@ -1,19 +1,67 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
 #popup {
   width:200px;
-  margin: 25px;
+  margin: 12px 12px 12px 12px;
   height: 60px;
-  text-align: center;
-  vertical-align: top;
   position: absolute;
-  z-index: 2137;
-  display: block;
-  color: #666;
+  z-index: 2200;
+  color: #000000;
   background-color: #eee;
   font-size: 15px;
-  padding: 10px 30px;
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border: 1px solid rgba(0,0,0,0.3);
   border-bottom-width: 3px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 55px;
+  font-family: Lato;
+}
+
+.arrow {
+  width: 0; 
+  display: block;
+  padding: inherit;
+  position: relative;
+}
+
+.arrow-up {
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #eee;
+  float: top;
+  position: absolute;
+  top: -8px;
+  margin-left: 90px;
+}
+
+.arrow-down {
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #eee;
+  float: bottom;
+  bottom: -8px;
+  margin-left: 90px;
+  position: absolute; 
+
+}
+
+.arrow-right {
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 8px solid #eee;
+  float: right;
+  margin-top: 22px;
+  left: 8px;
+}
+
+.arrow-left { 
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent; 
+  border-right: 8px solid #eee; 
+  float: left;
+  margin-top: 22px;
+  right: 8px;
 }

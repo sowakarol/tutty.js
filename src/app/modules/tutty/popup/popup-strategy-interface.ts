@@ -6,6 +6,7 @@ export default abstract class PopupStrategyInterface {
   protected bottom;
   protected innerWindowWidth;
   protected height;
+  protected width : number = 200; //200px from css
 
   protected positionPopup(boundingClientRect) {
     this.left = boundingClientRect.left;
@@ -14,6 +15,10 @@ export default abstract class PopupStrategyInterface {
     this.bottom = boundingClientRect.bottom;
     this.innerWindowWidth = window.innerWidth;
     this.height = document.getElementById('popup').getBoundingClientRect().height;
+  }
+
+  protected positionArrow(arrow: HTMLElement, type :string){
+    arrow.className = "arrow " + type;
   }
 
   public abstract setPosition(boundingClientRect, popupComponent);
