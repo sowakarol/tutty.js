@@ -9,8 +9,6 @@ export class PopupService {
   hints: Array<Hint>;
   currentHint = 0;
   elem = [];
-  divRefZIndex: number;
-  divRefBoxShadow: string;
 
   popupComponent: PopupComponent;
   divVo: DivVO = new DivVO;
@@ -25,8 +23,6 @@ export class PopupService {
   public popPrev() {
     let divRef = this.elem[this.currentHint];
     this.divVo.reset(divRef);
-    divRef.style.zIndex = this.divRefZIndex;
-    divRef.style.boxShadow = this.divRefBoxShadow;
     this.currentHint--;
     this.pop();
   }
