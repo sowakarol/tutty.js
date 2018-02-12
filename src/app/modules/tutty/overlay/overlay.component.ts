@@ -95,6 +95,10 @@ export class OverlayComponent implements AfterViewChecked {
     this.exitModalDisplay = 'block';
   }
 
+  closeExitModal = () => {
+    this.exitModalDisplay = 'none';
+  }
+
   close() {
     this.overlayOpacity = 0;
     this.popupService.resetDiv();

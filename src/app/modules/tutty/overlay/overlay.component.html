@@ -9,7 +9,7 @@
         (prevHintEvent)="showPrevHint()"
     >
     </app-paging>
-    
+
     <div id="exitModal" [style.display]="exitModalDisplay">
 
         <div id="exit-modal-content">
@@ -22,7 +22,7 @@
                     <button (click)='close()' class="overlay-button">Yes</button>
                 </div>
                 <div class="col-xs-5 col-xs-offset-2 text-left">
-                    <button (click)='close()' class="overlay-button">No</button>
+                    <button (click)='closeExitModal()' class="overlay-button">No</button>
                 </div>
             </div>
         </div>

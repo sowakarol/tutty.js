@@ -20,6 +20,7 @@
     font-size: 2em;
     right: 1.5em;
     transition-duration: 0.4s;
+    z-index: 2141;
 }
 
 #exit:hover {
@@ -29,7 +30,7 @@
 #exitModal {
    display: none;
    position: fixed;
-   z-index: 1;
+   z-index: 2500;
    left: 0;
    top: 0;
    width: 100%;

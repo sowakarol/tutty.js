@@ -55,7 +55,7 @@ export class PopupService {
     this.hints = popups;
   };
 
-  resetDiv() {
+  public resetDiv() {
     this.divVo.reset(this.elem[this.currentHint])
   }
 }
