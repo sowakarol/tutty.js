@@ -97,6 +97,7 @@ export class OverlayComponent implements AfterViewChecked {
 
   close() {
     this.overlayOpacity = 0;
+    this.popupService.resetDiv();
     setTimeout(() => {
       this.overlayDisplay = 'none';
     }, 1000);
