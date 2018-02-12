@@ -7,7 +7,7 @@ export class PopupStrategyTop extends PopupStrategyInterface {
     popupComponent.popupTop = this.top - this.height - 20  +  'px'; //margin arrow
     console.log(this);
     popupComponent.popupBottom = '';
-    popupComponent.popupLeft =  (this.width / 2) - this.width + this.left + 12   + 'px'; //margin
+    popupComponent.popupLeft =  ((- this.left + this.right) / 2) + this.left - this.width / 2 + 'px';
     this.positionArrow(document.getElementById('arrow'),'arrow-down');
   };
 }
@@ -19,7 +19,7 @@ export class PopupStrategyBottom extends PopupStrategyInterface {
     popupComponent.popupTop = this.bottom  + 6  +  'px'; //arrow
     popupComponent.popupBottom = '';
     console.log(this);
-    popupComponent.popupLeft =  - (this.width / 2) + ((this.left + this.right)/2)+ 'px';
+    popupComponent.popupLeft =  ((- this.left + this.right) / 2) + this.left - this.width / 2 + 'px';
     //popupComponent.popupLeft =  (this.width / 2) - this.width + this.left + 12   + 'px'; //margin
 
     console.log(popupComponent.popupLeft );
