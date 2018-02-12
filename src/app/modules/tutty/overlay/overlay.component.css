@@ -13,13 +13,6 @@
   transition: opacity 1s ease-in-out;
 }
 
-#paging {
-    bottom: 1em;
-    position: fixed;
-    display: block;
-    width: 100%;
-}
-
 #exit {
     position: fixed;
     cursor: pointer;

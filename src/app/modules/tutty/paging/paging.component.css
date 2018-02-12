@@ -1,14 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Lato);
 
 
-#paging {
-    bottom: 1em;
-    position: fixed;
-    display: block;
-    width: 100%;  
-    font-family: Lato;
-}
-
 #hint-progress { 
     padding: 7px;
 }
@@ -20,6 +12,7 @@
     width: 22px;
     text-align: center;
     display: inline-block;
+    font-family: 'Lato';
 }
 
 .hint-progress-indicator-current {
@@ -37,6 +30,7 @@
     min-width: 71px;
     transition-duration: 0.4s;
     cursor: pointer;
+    font-family: 'Lato';
 }
 
 .paging-button:hover {

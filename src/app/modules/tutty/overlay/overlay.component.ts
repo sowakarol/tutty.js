@@ -73,31 +73,16 @@ export class OverlayComponent implements AfterViewChecked {
   overlayDisplay = 'none';
   overlayOpacity = 100;
   exitModalDisplay = 'none';
-  nextButtonText = 'Next';
 
   showNextHint = () => {
-    if (this.currentHintIndex === this.numberOfHints - 1) {
-      this.close();
-      return;
-    }
-
+    if (this.currentHintIndex === this.numberOfHints - 1) { this.close(); return; }
     this.currentHintIndex++;
-    if (this.currentHintIndex === this.numberOfHints - 1) {
-      this.nextButtonText = 'Close';
-    }
-
     this.popupService.popNext();
-
   }
 
   showPrevHint = () => {
     this.currentHintIndex--;
-    if (this.currentHintIndex === this.numberOfHints - 2) {
-      this.nextButtonText = 'Next';
-    }
-
     this.popupService.popPrev();
-
   }
 
   createComponent() {
@@ -120,7 +105,7 @@ export class OverlayComponent implements AfterViewChecked {
   private getElements(hints: Hint[]): HTMLElement[] {
     return hints.map((hint) => {
       return document.getElementById(hint.getId() as string);
-    })
+    });
   }
 
 }
