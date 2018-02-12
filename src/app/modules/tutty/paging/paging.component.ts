@@ -1,6 +1,6 @@
-import { Component, Input, EventEmitter, Output } from '@angular/core';
+import { Component, Input, EventEmitter, Output, OnChanges } from '@angular/core';
 import {PagingState} from './paging-state-interface';
-import {PagingStateFirstElement} from './paging-state-implementations';
+import { PagingStateFirstElement } from './paging-state-implementations';
 
 @Component({
   selector: 'app-paging',
@@ -9,22 +9,18 @@ import {PagingStateFirstElement} from './paging-state-implementations';
 })
 export class PagingComponent {
 
-  @Input() currentHintIndex;
-  @Input() numberOfHints;
+  @Input() public currentHintIndex;
+  @Input() public numberOfHints;
 
   @Output() nextHintEvent = new EventEmitter<any>();
   @Output() prevHintEvent = new EventEmitter<any>();
 
-  public nextButtonText: String = 'Next';
-  public disablePrevButton: Boolean = true;
+  public nextButtonText = 'Next';
+  public disablePrevButton = true;
+
   private pagingState: PagingState = new PagingStateFirstElement();
 
-  constructor() {}
-
-  // TODO: figure out 
-  // ngOnInit()  {
-  //   this.numberOfHints === 1 ? this.nextButtonText = 'Close' : this.nextButtonText = 'Next';
-  // }
+  constructor() { }
 
   private nextHint(): void {
     this.nextHintEvent.emit();
@@ -36,8 +32,8 @@ export class PagingComponent {
     this.pagingState.pressPrevButton(this);
   }
 
-  public setState(newPagingState): void {
-    this.pagingState = newPagingState;
+  public setState(newState: PagingState): void {
+    this.pagingState = newState;
   }
 
 }

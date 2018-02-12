@@ -1,4 +1,5 @@
 #overlay {
+<<<<<<< Updated upstream
   position: fixed;
   display: none;
   width: 100%;
@@ -18,6 +19,18 @@
     position: fixed;
     display: block;
     width: 100%;
+=======
+    position: fixed;
+    display: none;
+    width: 100%; 
+    height: 100%; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); 
+    z-index: 2137;
+>>>>>>> Stashed changes
 }
 
 #exit {
@@ -33,10 +46,13 @@
     color: white;
 }
 
+<<<<<<< Updated upstream
 #hint-progress {
     padding: 7px;
 }
 
+=======
+>>>>>>> Stashed changes
 #exitModal {
    display: none;
    position: fixed;
@@ -81,6 +97,7 @@
   background-color: #cccccc;
   color: #666666;
   cursor: default;
+<<<<<<< Updated upstream
 }
 
 .hint-progress-indicator {
@@ -95,3 +112,6 @@
 .hint-progress-indicator-current {
     background-color: gainsboro;
 }
+=======
+}
+>>>>>>> Stashed changes

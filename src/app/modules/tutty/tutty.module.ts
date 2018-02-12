@@ -8,6 +8,7 @@ import { CookieModule } from 'ngx-cookie';
 import {PopupComponent} from "./popup/popup.component";
 import { CookieTestComponent } from './cookie-test/cookie-test.component';
 import { CookiesHandlerService } from './cookies-handler/cookies-handler.service';
+import {PagingComponent} from './paging/paging.component';
 
 
 // @dynamic
@@ -26,7 +27,8 @@ import { CookiesHandlerService } from './cookies-handler/cookies-handler.service
   declarations: [
     OverlayComponent,
     CookieTestComponent,
-    PopupComponent
+    PopupComponent,
+    PagingComponent
 
   ],
   exports: [
