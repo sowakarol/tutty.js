@@ -1,0 +1,53 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+
+#paging {
+    bottom: 1em;
+    position: fixed;
+    display: block;
+    width: 100%;  
+    font-family: Lato;
+}
+
+#hint-progress { 
+    padding: 7px;
+}
+
+.hint-progress-indicator {
+    border-radius: 50%;
+    border: 2px solid #666;
+    height: 22px;
+    width: 22px;
+    text-align: center;
+    display: inline-block;
+}
+
+.hint-progress-indicator-current {
+    background-color: gainsboro;
+}
+
+.paging-button {
+    display: inline-block;
+    border: 2px solid #555555;
+    background-color: #555555;
+    color: white;
+    padding: 7px;
+    text-align: center;
+    text-decoration: none;
+    min-width: 71px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.paging-button:hover {
+    color: #555555;
+    border: 2px solid #555555;
+    background-color: white;
+}
+
+.paging-button:disabled {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  cursor: default;
+}
