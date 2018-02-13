@@ -56,8 +56,6 @@ export class OverlayComponent implements AfterViewChecked {
     this.popupService.elem = this.getHTMLElements(nonNullHints);
     this.popupService.setHints(nonNullHints);
     this.popupService.popupComponent = this.createComponent();
-    console.log(nonNullHints.length);
-    console.log(nonNullHints);
     return nonNullHints.length;
   }
 
