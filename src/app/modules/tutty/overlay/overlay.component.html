@@ -1,35 +1,39 @@
-<div class="container-fluid" id="overlay" [style.display]="overlayDisplay" [style.opacity]="overlayOpacity">
+<div class="container-fluid"> 
 
-    <span id="exit" (click)="showExitModal()" class="glyphicon glyphicon-remove"></span>
-    
     <app-paging 
-        [pagingPointerEvents]="pagingPointerEvents"
-        [currentHintIndex]="currentHintIndex"
-        [numberOfHints]="numberOfHints"
-        (nextHintEvent)="showNextHint()" 
-        (prevHintEvent)="showPrevHint()"
+    [pagingPointerEvents]="pagingPointerEvents"
+    [currentHintIndex]="currentHintIndex"
+    [numberOfHints]="numberOfHints"
+    (nextHintEvent)="showNextHint()" 
+    (prevHintEvent)="showPrevHint()"
     >
     </app-paging>
 
-    <div id="exitModal" [style.display]="exitModalDisplay">
+    <span id="exit" (click)="showExitModal()" class="glyphicon glyphicon-remove"></span>
 
-        <div id="exit-modal-content">
-            <div class="row text-center">
-                <h4>Are you sure that you want to skip the tutorial?</h4>
-            </div>
-            &nbsp;
-            <div class="row">
-                <div class="col-xs-5 text-right">
-                    <button (click)='close()' class="overlay-button">Yes</button>
+    <div id="overlay" [style.display]="overlayDisplay" [style.opacity]="overlayOpacity">
+
+        <div id="exitModal" [style.display]="exitModalDisplay">
+
+            <div id="exit-modal-content">
+                <div class="row text-center">
+                    <h4>Are you sure that you want to skip the tutorial?</h4>
                 </div>
-                <div class="col-xs-5 col-xs-offset-2 text-left">
-                    <button (click)='closeExitModal()' class="overlay-button">No</button>
+                &nbsp;
+                <div class="row">
+                    <div class="col-xs-5 text-right">
+                        <button (click)='close()' class="overlay-button">Yes</button>
+                    </div>
+                    <div class="col-xs-5 col-xs-offset-2 text-left">
+                        <button (click)='closeExitModal()' class="overlay-button">No</button>
+                    </div>
                 </div>
             </div>
+
         </div>
 
-    </div>
+        <ng-template #popupContainer></ng-template>
 
-    <ng-template #popupContainer></ng-template>
+    </div>
 
 </div>

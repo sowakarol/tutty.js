@@ -6,6 +6,7 @@
     z-index: 5000;
     display: block;
     width: 100%;  
+    left: 0px;
     font-family: Lato;
 }
 
