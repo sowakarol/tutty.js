@@ -4,6 +4,10 @@
         "name": "first",
         "hints":[
           {
+            "id": "menu",
+            "direction": "top",
+            "message": "menu"},
+          {
             "id": "header",
             "direction" : "right",
             "message" : "witaj na paskudnej starej stronie internetowej! aaaaaaaaaaaa aaaaaaaaaaaa aaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
@@ -16,17 +20,17 @@
           {
             "id": "print",
             "direction" : "top",
-            "message" : "drukuj"       
+            "message" : "drukuj"
           },
           {
             "id": "comment",
             "direction" : "top",
-            "message" : "komentuj"       
+            "message" : "komentuj"
           },
           {
             "id": "footer",
             "direction" : "top",
-            "message" : "ayyyyy lmao" 
+            "message" : "ayyyyy lmao"
           }
         ]
       },
@@ -46,17 +50,17 @@
           {
             "id": "print",
             "direction" : "top",
-            "message" : "ayyyyyyy lmao"       
+            "message" : "ayyyyyyy lmao"
           },
           {
             "id": "comment",
             "direction" : "top",
-            "message" : "ayyyyyyy lmao"       
+            "message" : "ayyyyyyy lmao"
           },
           {
             "id": "footer",
             "direction" : "top",
-            "message" : "ayyyyy lmao" 
+            "message" : "ayyyyy lmao"
           }
         ]
       },
@@ -73,7 +77,7 @@
             "direction" : "right",
             "message" : "bcd"
           }
-        ]   
+        ]
       }
   ]
 }

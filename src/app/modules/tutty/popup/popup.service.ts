@@ -44,6 +44,9 @@ export class PopupService {
     this.popupComponent.strategy = strategy;
     this.popupComponent.set(divRef);
     this.divVo.enlightenReference(divRef);
+    setTimeout(() =>{
+      this.popupComponent.set(divRef);
+    }, 100);
     this.popupComponent.popUp(hint.message, hint.id);
   };
 
