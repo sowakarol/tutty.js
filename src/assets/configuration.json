@@ -4,7 +4,7 @@
         "name": "first",
         "hints":[
           {
-            "id": "menu",
+            "id": "loginbtn",
             "direction": "top",
             "message": "menu"},
           {
@@ -26,7 +26,7 @@
             "message" : "aaaaaaaaa"
           },
           {
-            "id": "arch",
+            "id": "nowosci",
             "direction" : "bottom",
             "message" : "jakies archiwum"
           },

@@ -1,6 +1,5 @@
 import {
   AfterViewChecked,
-  AfterViewInit,
   ChangeDetectorRef,
   Component,
   ComponentFactory,
@@ -34,29 +33,32 @@ export class OverlayComponent implements AfterViewChecked {
     }
   ) popupContainer;
 
-  constructor(
-    public popupService: PopupService,
-    private resolver: ComponentFactoryResolver,
-    private cdRef: ChangeDetectorRef,
-    private hintsService: HintProviderService) { }
+  constructor(public popupService: PopupService,
+              private resolver: ComponentFactoryResolver,
+              private cdRef: ChangeDetectorRef,
+              private hintsService: HintProviderService) {
+  }
 
   public show(collection: string) {
     let hints: Hint[] = this.hintsService.getHints(collection);
     !hints && console.warn('tutty: ' + collection + ' not found!');
 
-    this.preparePopupService(hints);
+    this.numberOfHints = this.preparePopupService(hints);
     this.currentHintIndex = 0;
-    this.numberOfHints = hints.length;
 
     this.popupService.pop();
     this.display();
     this.cdRef.detectChanges();
   }
 
-  private preparePopupService(hints: Hint[]): void {
-    this.popupService.setHints(hints);
-    this.popupService.elem = this.getElements(hints);
+  private preparePopupService(hints: Hint[]): number {
+    let nonNullHints = this.getNonNullHints(hints);
+    this.popupService.elem = this.getHTMLElements(nonNullHints);
+    this.popupService.setHints(nonNullHints);
     this.popupService.popupComponent = this.createComponent();
+    console.log(nonNullHints.length);
+    console.log(nonNullHints);
+    return nonNullHints.length;
   }
 
   private display() {
@@ -84,7 +86,10 @@ export class OverlayComponent implements AfterViewChecked {
   exitModalDisplay = 'none';
 
   showNextHint = () => {
-    if (this.currentHintIndex === this.numberOfHints - 1) { this.close(); return; }
+    if (this.currentHintIndex === this.numberOfHints - 1) {
+      this.close();
+      return;
+    }
     this.currentHintIndex++;
     this.popupService.popNext();
   }
@@ -119,7 +124,7 @@ export class OverlayComponent implements AfterViewChecked {
     this.exitModalOpacity = 0;
 
     this.popupService.resetDiv();
-    
+
     setTimeout(() => {
       this.overlayDisplay = 'none';
       this.exitIconDisplay = 'none';
@@ -128,10 +133,19 @@ export class OverlayComponent implements AfterViewChecked {
     }, 1000);
   }
 
-  private getElements(hints: Hint[]): HTMLElement[] {
-    return hints.map((hint) => {
-      return document.getElementById(hint.getId() as string);
-    });
+  private getNonNullHints(hints: Hint[]): Hint[] {
+    let hinters = [];
+    for (let i = 0; i < hints.length; i++) {
+      if (document.getElementById(hints[i].getId() as string) != null) {
+        hinters.push(hints[i]);
+      }
+    }
+    return hinters;
+  }
+
+  private getHTMLElements(hints: Hint[]): HTMLElement[] {
+    return hints
+      .map((hint) => document.getElementById(hint.getId() as string));
   }
 
 }
