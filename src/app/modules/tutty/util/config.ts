@@ -17,7 +17,7 @@ export class Config {
 
     load() {
         return new Promise((resolve, reject) => {
-          this.http.get('../assets/configuration.json')
+          this.http.get('../assets/tutty-configuration.json')
             .subscribe((ids_data) => {
                 this._config = JSON.parse(ids_data['_body']);
                 console.log(this._config);
