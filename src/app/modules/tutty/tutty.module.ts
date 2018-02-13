@@ -6,11 +6,9 @@ import {HttpModule} from '@angular/http'
 import {OverlayComponent} from './overlay/overlay.component';
 import { CookieModule } from 'ngx-cookie';
 import {PopupComponent} from "./popup/popup.component";
-import { CookiesAdapter } from './cookies-handler/cookies-adapter.service';
+import { CookieTestComponent } from './cookie-test/cookie-test.component';
+import { CookiesHandlerService } from './cookies-handler/cookies-handler.service';
 import {PagingComponent} from './paging/paging.component';
-import { TuttyService } from './tutty/tutty.service';
-import { HintProviderService } from './hint-provider/hint-provider.service';
-import { JsonParserService } from './parser/json-parser.service';
 
 
 // @dynamic
@@ -23,21 +21,20 @@ import { JsonParserService } from './parser/json-parser.service';
   ],
   providers: [
     Config,
-    CookiesAdapter,
-    TuttyService,
-    HintProviderService,
-    JsonParserService,
+    CookiesHandlerService,
     { provide: APP_INITIALIZER, useFactory: useFactory, deps: [Config], multi: true }
   ],
   declarations: [
     OverlayComponent,
+    CookieTestComponent,
     PopupComponent,
     PagingComponent
 
   ],
-  entryComponents: [
+  exports: [
     OverlayComponent
   ]
+
 
 })
 export class TuttyModule { }
@@ -45,11 +42,11 @@ export class TuttyModule { }
 
 export function useFactory(config: Config) {
   return  () => {
-    try { 
-      return config.load(); 
-    } 
+    try {
+      return config.load();
+    }
     catch(ex) {
       return null;
-    }; 
+    };
   }
 }

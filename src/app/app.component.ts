@@ -1,22 +1,21 @@
 import { Component, ViewChild } from '@angular/core';
 import { OverlayComponent } from './modules/tutty/overlay/overlay.component';
-import { AfterViewChecked, AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
-import { TuttyService } from './modules/tutty/tutty/tutty.service';
+import { AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  providers: [TuttyService]
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements AfterViewInit {
 
+  @ViewChild(OverlayComponent) tutty: OverlayComponent;
+
+
   title = 'app';
-  constructor(private tutty: TuttyService) { }
-  
 
   ngAfterViewInit(): void {
-    this.tutty.displayHints("first");
+    this.tutty.show("first");
   }
 
 }
