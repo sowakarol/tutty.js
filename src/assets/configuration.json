@@ -8,9 +8,22 @@
             "direction": "top",
             "message": "menu"},
           {
+            "id": "tescik",
+            "direction": "top",
+            "message": "ree"},
+          {
+            "id": "tops",
+            "direction": "top",
+            "message": "ree"},
+          {
             "id": "header",
             "direction" : "right",
             "message" : "witaj na paskudnej starej stronie internetowej! aaaaaaaaaaaa aaaaaaaaaaaa aaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "id": "siema",
+            "direction" : "bottom",
+            "message" : "aaaaaaaaa"
           },
           {
             "id": "arch",

@@ -1,22 +1,22 @@
-<div class="container-fluid"> 
+<div class="container-fluid">
 
-    <app-paging 
+    <app-paging
     id="paging"
     [style.opacity]="pagingOpacity"
     [style.display]="pagingDisplay"
     [pagingPointerEvents]="pagingPointerEvents"
     [currentHintIndex]="currentHintIndex"
     [numberOfHints]="numberOfHints"
-    (nextHintEvent)="showNextHint()" 
+    (nextHintEvent)="showNextHint()"
     (prevHintEvent)="showPrevHint()"
     >
     </app-paging>
 
-    <span 
+    <span
         [style.opacity]="exitIconOpacity"
         [style.display]="exitIconDisplay"
-        id="exit" 
-        (click)="showExitModal()" 
+        id="exit"
+        (click)="showExitModal()"
         class="glyphicon glyphicon-remove">
     </span>
 
