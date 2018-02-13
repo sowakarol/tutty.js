@@ -37,6 +37,9 @@ import {JsonParserService} from "./parser/json-parser.service";
   ],
   entryComponents: [
     OverlayComponent
+  ],
+  exports: [
+    TuttyService
   ]
 
 
