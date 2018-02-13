@@ -67,6 +67,7 @@ export class OverlayComponent implements AfterViewChecked {
 
   currentHintIndex: number;
   numberOfHints: number;
+  pagingPointerEvents: string = 'auto';
 
   overlayDisplay = 'none';
   overlayOpacity = 100;
@@ -91,10 +92,12 @@ export class OverlayComponent implements AfterViewChecked {
 
   showExitModal = () => {
     this.exitModalDisplay = 'block';
+    this.pagingPointerEvents = 'none';
   }
 
   closeExitModal = () => {
     this.exitModalDisplay = 'none';
+    this.pagingPointerEvents = 'auto';
   }
 
   close() {

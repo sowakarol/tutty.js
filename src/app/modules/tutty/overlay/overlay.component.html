@@ -3,6 +3,7 @@
     <span id="exit" (click)="showExitModal()" class="glyphicon glyphicon-remove"></span>
     
     <app-paging 
+        [pagingPointerEvents]="pagingPointerEvents"
         [currentHintIndex]="currentHintIndex"
         [numberOfHints]="numberOfHints"
         (nextHintEvent)="showNextHint()" 

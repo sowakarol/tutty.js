@@ -11,6 +11,7 @@ export class PagingComponent {
 
   @Input() public currentHintIndex;
   @Input() public numberOfHints;
+  @Input() public pagingPointerEvents;
 
   @Output() nextHintEvent = new EventEmitter<any>();
   @Output() prevHintEvent = new EventEmitter<any>();
