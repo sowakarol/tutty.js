@@ -16,6 +16,7 @@
 
 .hint-progress-indicator {
     background-color: rgb(57, 66, 60);
+    box-shadow: 0 4px 8px 0.3em rgba(0, 0, 0, 0.2), 0 6px 20px 0.3em rgba(0, 0, 0, 0.19);
     border-radius: 5px;
     height: 22px;
     width: 22px;
