@@ -1,22 +1,31 @@
 import { Injectable } from '@angular/core';
 import { JsonParserService } from '../parser/json-parser.service';
-import { CookiesHandlerService } from '../cookies-handler/cookies-handler.service';
+import { CookiesAdapter } from '../cookies-handler/cookies-adapter.service';
 import { HintCollection, Hint } from '../util/classes';
 
 @Injectable()
 export class HintProviderService {
 
   constructor(private parser: JsonParserService,
-              private cookiesHandler: CookiesHandlerService) { }
+              private cookiesHandler: CookiesAdapter) { }
 
   public getHints(name: string) {
     let allHints: HintCollection[] = this.parser.parse(),
       currCollection: HintCollection =
-        this.getCollection(allHints, name),
-      hintsToDisplay: Hint[] =
-        this.getUnshown(currCollection.getHints());
+        this.getCollection(allHints, name);
 
-        return hintsToDisplay;
+    if(!currCollection) {
+      console.warn('tutty: ' + name + ' not found!');
+      return [];
+    }
+
+    // COOKIES RESET FOR TESTS:
+    // this.cookiesHandler.resetAll();
+    return !this.wasShown(name) ? currCollection.getHints() : [];
+  }
+
+  public setShown(name: string): void {
+    this.cookiesHandler.setShown(name);
   }
 
   getCollection(hintCol: HintCollection[], name: String): HintCollection {
@@ -25,10 +34,8 @@ export class HintProviderService {
     });
   }
 
-  getUnshown(hints: Hint[]): Hint[] {
-    return hints.filter((hint) => {
-        return !this.cookiesHandler.wasShown(hint.getId() as string);
-    });
+  private wasShown(collectionName: string): boolean {
+    return this.cookiesHandler.wasShown(collectionName);
   }
 
 }

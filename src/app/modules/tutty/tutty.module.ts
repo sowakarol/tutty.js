@@ -6,8 +6,7 @@ import {HttpModule} from '@angular/http'
 import {OverlayComponent} from './overlay/overlay.component';
 import { CookieModule } from 'ngx-cookie';
 import {PopupComponent} from "./popup/popup.component";
-import { CookieTestComponent } from './cookie-test/cookie-test.component';
-import { CookiesHandlerService } from './cookies-handler/cookies-handler.service';
+import { CookiesAdapter } from './cookies-handler/cookies-adapter.service';
 import {PagingComponent} from './paging/paging.component';
 
 
@@ -21,12 +20,11 @@ import {PagingComponent} from './paging/paging.component';
   ],
   providers: [
     Config,
-    CookiesHandlerService,
+    CookiesAdapter,
     { provide: APP_INITIALIZER, useFactory: useFactory, deps: [Config], multi: true }
   ],
   declarations: [
     OverlayComponent,
-    CookieTestComponent,
     PopupComponent,
     PagingComponent
 
