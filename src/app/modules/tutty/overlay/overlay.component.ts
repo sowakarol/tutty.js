@@ -61,6 +61,8 @@ export class OverlayComponent implements AfterViewChecked {
 
   private display() {
     this.overlayDisplay = 'block';
+    this.pagingDisplay = 'inline-block';
+    this.exitIconDisplay = 'block';
   }
 
   ngAfterViewChecked() {
@@ -71,8 +73,14 @@ export class OverlayComponent implements AfterViewChecked {
   numberOfHints: number;
   pagingPointerEvents: string = 'auto';
 
-  overlayDisplay = 'none';
   overlayOpacity = 100;
+  pagingOpacity = 100;
+  exitIconOpacity = 100;
+  exitModalOpacity = 100;
+
+  overlayDisplay = 'none';
+  pagingDisplay = 'none';
+  exitIconDisplay = 'none';
   exitModalDisplay = 'none';
 
   showNextHint = () => {
@@ -93,20 +101,30 @@ export class OverlayComponent implements AfterViewChecked {
   }
 
   showExitModal = () => {
+    this.exitIconDisplay = 'none';
     this.exitModalDisplay = 'block';
     this.pagingPointerEvents = 'none';
   }
 
   closeExitModal = () => {
+    this.exitIconDisplay = 'block';
     this.exitModalDisplay = 'none';
     this.pagingPointerEvents = 'auto';
   }
 
   close() {
     this.overlayOpacity = 0;
+    this.pagingOpacity = 0;
+    this.exitIconOpacity = 0;
+    this.exitModalOpacity = 0;
+
     this.popupService.resetDiv();
+    
     setTimeout(() => {
       this.overlayDisplay = 'none';
+      this.exitIconDisplay = 'none';
+      this.pagingDisplay = 'none';
+      this.exitModalDisplay = 'none';
     }, 1000);
   }
 

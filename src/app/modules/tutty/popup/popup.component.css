@@ -21,7 +21,7 @@
   padding: 20px 10px;
   word-wrap: break-word;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  transition: left 0.5s, top 0.5s, right 0.5s, bottom 0.5s;
+  /* transition: left 0.5s, top 0.5s, right 0.5s, bottom 0.5s; */
 }
 
 .arrow {
