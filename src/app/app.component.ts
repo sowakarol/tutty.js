@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { OverlayComponent } from './modules/tutty/overlay/overlay.component';
 import { AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
+import {TuttyService} from "./modules/tutty/tutty/tutty.service";
 
 @Component({
   selector: 'app-root',
@@ -9,13 +10,11 @@ import { AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
 })
 export class AppComponent implements AfterViewInit {
 
-  @ViewChild(OverlayComponent) tutty: OverlayComponent;
-
-
+  constructor(private tutty: TuttyService) { }
   title = 'app';
 
   ngAfterViewInit(): void {
-    this.tutty.show("first");
+    this.tutty.displayHints("first", 'inner');
   }
 
 }

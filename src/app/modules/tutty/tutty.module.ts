@@ -8,6 +8,9 @@ import { CookieModule } from 'ngx-cookie';
 import {PopupComponent} from "./popup/popup.component";
 import { CookiesAdapter } from './cookies-handler/cookies-adapter.service';
 import {PagingComponent} from './paging/paging.component';
+import {HintProviderService} from "./hint-provider/hint-provider.service";
+import {TuttyService} from "./tutty/tutty.service";
+import {JsonParserService} from "./parser/json-parser.service";
 
 
 // @dynamic
@@ -21,6 +24,9 @@ import {PagingComponent} from './paging/paging.component';
   providers: [
     Config,
     CookiesAdapter,
+    JsonParserService,
+    HintProviderService,
+    TuttyService,
     { provide: APP_INITIALIZER, useFactory: useFactory, deps: [Config], multi: true }
   ],
   declarations: [
@@ -29,7 +35,7 @@ import {PagingComponent} from './paging/paging.component';
     PagingComponent
 
   ],
-  exports: [
+  entryComponents: [
     OverlayComponent
   ]
 

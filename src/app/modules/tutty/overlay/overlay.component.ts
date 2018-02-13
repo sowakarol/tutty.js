@@ -39,14 +39,11 @@ export class OverlayComponent implements AfterViewChecked {
               private hintsService: HintProviderService) {
   }
 
-  public show(collection: string) {
-    let hints: Hint[] = this.hintsService.getHints(collection);
-    !hints && console.warn('tutty: ' + collection + ' not found!');
+  public show(hints: Hint[]) {
 
     if (hints.length === 0 || !hints) {
       return;
     }
-    this.hintsService.setShown(collection);
 
     this.preparePopupService(hints);
     this.numberOfHints = this.preparePopupService(hints);
