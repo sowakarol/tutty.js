@@ -8,7 +8,8 @@ Library for Angular 5 for creating simple interactive tutorials for your website
 ```
 npm install bootstrap@3
 ```
-Add proper id to HTML elements to which you would like to display hints.
+Remember to add proper ID to those HTML elements where you would like to display hints.
+
 2. Create `tutty-configuration.json` file which has format like this:
 ```
 {
