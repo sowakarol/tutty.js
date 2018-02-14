@@ -19,8 +19,8 @@ export class HintProviderService {
       return [];
     }
 
-    // COOKIES RESET FOR TESTS:
-    this.cookiesHandler.resetAll();
+  // COOKIES RESET FOR TESTS:
+  //  this.cookiesHandler.resetAll();
     return !this.wasShown(name) ? currCollection.getHints() : [];
   }
 
