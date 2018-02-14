@@ -10,40 +10,35 @@
           {
             "id": "tescik",
             "direction": "top",
-            "message": "ree"},
+            "message": "list of contents"},
           {
             "id": "tops",
             "direction": "top",
-            "message": "ree"},
+            "message": "list of topics"},
           {
             "id": "header",
+            "direction" : "bottom",
+            "message" : "this is some picture"
+          },
+          {
+            "id": "pic",
             "direction" : "right",
-            "message" : "witaj na paskudnej starej stronie internetowej! aaaaaaaaaaaa aaaaaaaaaaaa aaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-          },
-          {
-            "id": "siema",
-            "direction" : "bottom",
-            "message" : "aaaaaaaaa"
-          },
-          {
-            "id": "nowosci",
-            "direction" : "bottom",
-            "message" : "jakies archiwum"
+            "message" : "picture which is not avaliable ;c "
           },
           {
             "id": "print",
             "direction" : "top",
-            "message" : "drukuj"
+            "message" : "print content"
           },
           {
             "id": "comment",
             "direction" : "top",
-            "message" : "komentuj"
+            "message" : "comment something"
           },
           {
             "id": "footer",
             "direction" : "top",
-            "message" : "ayyyyy lmao"
+            "message" : "footer of this page "
           }
         ]
       }
