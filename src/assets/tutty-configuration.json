@@ -46,6 +46,26 @@
             "message" : "some content"
           }
         ]
+      },
+      {
+        "name": "upel",
+        "hints": [
+          {
+            "id": "loginhint",
+            "direction": "left",
+            "message": "Login to see your grades"
+          },
+          {
+            "id": "nowosci",
+            "direction": "bottom",
+            "message": "Nowosci na upel"
+          },
+          {
+            "id": "logonasze",
+            "direction": "top",
+            "message": "Nasze logo"
+          }
+        ]
       }
     ]
 }
