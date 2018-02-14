@@ -11,13 +11,13 @@ export class CookiesAdapter implements CookiesHandlerInterface {
       expires: new Date(2027, 12, 31),
       path: '/'
     };
-  
+
     constructor(private _cookieService:CookieService) { }
-  
+
     public wasShown(id: string): boolean {
-      return (this.getShown().length !== 0);
+      return (this.getShown().indexOf(id) !== -1);
     }
-  
+
     public setShown(id: string): void {
       const updatedShown = this.addToShown(id),
             stringValue = updatedShown.join(this.SEPARATOR);
