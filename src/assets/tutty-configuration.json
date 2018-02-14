@@ -46,51 +46,6 @@
             "message" : "ayyyyy lmao"
           }
         ]
-      },
-      {
-        "name":"ayy",
-        "hints": [
-          {
-            "id": "header",
-            "direction" : "right",
-            "message" : "ayyyyyyy lmao"
-          },
-          {
-            "id": "arch",
-            "direction" : "bottom",
-            "message" : "ayyyyyyy lmao"
-          },
-          {
-            "id": "print",
-            "direction" : "top",
-            "message" : "ayyyyyyy lmao"
-          },
-          {
-            "id": "comment",
-            "direction" : "top",
-            "message" : "ayyyyyyy lmao"
-          },
-          {
-            "id": "footer",
-            "direction" : "top",
-            "message" : "ayyyyy lmao"
-          }
-        ]
-      },
-      {
-        "name":"wrong",
-        "hints":[
-          {
-            "id": "id6",
-            "direction" : "up",
-            "message" : "asd"
-          },
-          {
-            "id": "id1",
-            "direction" : "right",
-            "message" : "bcd"
-          }
-        ]
       }
-  ]
+    ]
 }
