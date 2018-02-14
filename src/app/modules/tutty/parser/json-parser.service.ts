@@ -25,12 +25,19 @@ export class JsonParserService implements ParserService{
       res => {
         let hints: Hint[] = new Array<Hint>();
         res.hints.map(hint => {
-          hints.push(this.hintFactory.createHint(hint.id, hint.message, hint.direction))
+          this.validateHint(hint.direction) && hints.push(this.hintFactory.createHint(hint.id, hint.message, hint.direction))
         });
       results.push(this.hintCollectionFactory.createHintCollection(res.name, hints));
 
     })
     return results;    
+  }
+
+  private validateHint(hintDirection: String): boolean {
+    return hintDirection === 'top' || 
+      hintDirection === 'bottom' ||
+      hintDirection === 'right' ||
+      hintDirection === 'left';
   }
   
 }

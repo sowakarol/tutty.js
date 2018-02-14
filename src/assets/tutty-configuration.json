@@ -39,6 +39,11 @@
             "id": "footer",
             "direction" : "top",
             "message" : "footer of this page "
+          },
+          {
+            "id": "readmore",
+            "direction" : "zlykierunek",
+            "message" : "some content"
           }
         ]
       }
