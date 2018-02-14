@@ -1,14 +1,16 @@
 # Tutty.js
 
+### Authors
+ - [Karol Sowa](https://github.com/sowakarol)
+ - [Oskar Siorek](https://github.com/siorekoskar)
+ - [Filip Prasalek](https://github.com/filipprasalek)
+ - [Dominik Kwapisz](https://github.com/epyepy)
+
 Library for Angular 5 for creating simple interactive tutorials for your website!
 
 ### How to use?
                
-1. Make sure that your project is run on Angular5 and has Bootstrap included in its package.json. If not type:
-```
-npm install bootstrap@3
-```
-Remember to add proper ID to those HTML elements where you would like to display hints.
+1. Make sure that your project is run on Angular 5.2+ and has Bootstrap v.3.3.7 included in its package.json. Remember to add proper ID to those HTML elements where you would like to display hints.
 
 2. Create `tutty-configuration.json` file which has format like this:
 ```
@@ -49,4 +51,4 @@ ngAfterViewInit(): void { this.tutty.displayHints("firstHintCollection", 'inner'
 ```
 where `firstHintCollection` is hint collection name and `inner` is ID of HTML element where you want to inject this component. 
 
-**NOTE:**  to make sure that hints will be proprerly displayed you need to invoke `displayHints` method after your application DOM will be loaded (for example in ngAfterViewInit() method).
+**NOTE:**  to make sure that hints will be proprerly displayed you need to invoke `displayHints` method after your application DOM will be loaded (for example in `ngAfterViewInit()` method).
