@@ -1,11 +1,5 @@
 # Tutty.js
 
-### Authors
- - [Karol Sowa](https://github.com/sowakarol)
- - [Oskar Siorek](https://github.com/siorekoskar)
- - [Filip Prasalek](https://github.com/filipprasalek)
- - [Dominik Kwapisz](https://github.com/epyepy)
-
 Library for Angular 5 for creating simple interactive tutorials for your website!
 
 ### How to use?
